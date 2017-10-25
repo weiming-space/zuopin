@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('#div1 div')
+</script>
+<![endif]-->
+<style type="text/css">
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+body{background: #ececec; padding-top:50px;}
+#div1{ width:970px; height:344px; margin:0 auto; position:relative; overflow:hidden;}
+#prev{ width:76px; height:112px; background:url(images/prev.png); position:absolute; left:50px; top:116px; z-index:4;}
+#next{ width:76px; height:112px; background:url(images/next.png) no-repeat; position:absolute; right:50px; top:116px; z-index:4;}
+
+#div1 ul{ width:970px; height:344px; position:absolute; left:0; top:0; z-index:1;}
+#div1 li{ position:absolute;}
+</style>
+<script type="text/ecmascript" src="js/huanChong.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	var oPrev=document.getElementById('prev');
+	var oNext=document.getElementById('next');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var aLi=oUl.getElementsByTagName('li');
+	var aImg=oUl.getElementsByTagName('img');
+	var aPos=[];
+	var MidIndex=Math.floor(aLi.length/2);
+	var MidLeft=(oUl.offsetWidth-aLi[MidIndex].offsetWidth)/2;
+		aLi[MidIndex].style.left=MidLeft+'px';
+		aLi[MidIndex].style.top='0px';
+		aLi[MidIndex].style.zIndex=4;
+		aLi[MidIndex].style.opacity=1;
+		aLi[MidIndex].style.filter="alpha(opacity:100)";
+		for(var i=0; i<aLi.length; i++){
+			if(i==(MidIndex-1)){
+				aImg[i].width="510";
+				aLi[i].style.left="50px";
+				aLi[i].style.top="43px";
+				aLi[i].style.zIndex=3;
+				aLi[i].style.opacity=0.8;
+				aLi[i].style.filter="alpha(opacity:80)";
+			}else if(i==(MidIndex+1)){
+				aImg[i].width="510";
+				aLi[i].style.left=oUl.offsetWidth-aLi[i].offsetWidth-50+"px";
+				aLi[i].style.top="43px";
+				aLi[i].style.zIndex=3;
+				aLi[i].style.opacity=0.8;
+				aLi[i].style.filter="alpha(opacity:80)";
+			}else if(i==(MidIndex-2)){
+				aImg[i].width="270";
+				aLi[i].style.left="0px";
+				aLi[i].style.top="100px";
+				aLi[i].style.zIndex=2;
+				aLi[i].style.opacity=0.6;
+				aLi[i].style.filter="alpha(opacity:60)";
+			}else if(i==(MidIndex+2)){
+				aImg[i].width="270";
+				aLi[i].style.left=oUl.offsetWidth-aLi[i].offsetWidth+"px";;
+				aLi[i].style.top="100px";
+				aLi[i].style.zIndex=2;
+				aLi[i].style.opacity=0.6;
+				aLi[i].style.filter="alpha(opacity:60)";
+			}else if(i<(MidIndex-2)){
+				aImg[i].width="100";
+				aLi[i].style.left="0px";
+				aLi[i].style.top="-104px";
+				aLi[i].style.zIndex=1;
+				aLi[i].style.opacity=0;
+				aLi[i].style.filter="alpha(opacity:0)";
+			}else if(i>(MidIndex+2)){
+				aImg[i].width="270";
+				aLi[i].style.left=oUl.offsetWidth-aLi[i].offsetWidth+'px';
+				aLi[i].style.top="-100px";
+				aLi[i].style.zIndex=1;
+				aLi[i].style.opacity=0;
+				aLi[i].style.filter="alpha(opacity:0)";
+			}
+			
+		};
+		
+		
+		for(var i=0; i<aLi.length; i++){
+			
+			aPos.push([parseInt(getStyle(aLi[i],'left')),parseInt(getStyle(aLi[i],'top')),parseFloat(getStyle(aLi[i],'opacity'))*100,getStyle(aLi[i],'zIndex'),parseInt(getStyle(aImg[i],'width'))]);
+		
+		}
+		
+		oPrev.onclick=function(){
+			aPos.push(aPos[0]);
+			aPos.shift();
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].style.zIndex=aPos[i][3];
+				startMove(aLi[i],{left:aPos[i][0],top:aPos[i][1],opacity:aPos[i][2]});
+				startMove(aImg[i],{width:aPos[i][4]});
+				
+			}
+			
+		}
+		
+		oNext.onclick=function(){
+			aPos.unshift(aPos[aPos.length-1]);
+			aPos.pop();
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].style.zIndex=aPos[i][3];
+				startMove(aLi[i],{left:aPos[i][0],top:aPos[i][1],opacity:aPos[i][2]});
+				startMove(aImg[i],{width:aPos[i][4]});
+			}
+	
+		}		
+		
+		function getStyle(obj,sAttr){
+			if(obj.currentStyle){
+				return obj.currentStyle[sAttr];
+			}else{
+				return getComputedStyle(obj,false)[sAttr];	
+			}
+		}
+		
+	
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div id="prev"></div>
+    <div id="next"></div>
+    <ul>
+        <li><img src="images/h7.jpg" width="680"  /></li>
+        <li><img src="images/h8.jpg" width="680"  /></li>
+        <li><img src="images/h1.jpg" width="680"  /></li>
+        <li><img src="images/h2.jpg" width="680"  /></li>
+        <li><img src="images/h3.jpg" width="680"  /></li>
+        <li><img src="images/h4.jpg" width="680"  /></li>
+        <li><img src="images/h5.jpg" width="680"  /></li>
+        <li><img src="images/h6.jpg" width="680"  /></li>
+    </ul>
+</div>
+</body>
+</html>

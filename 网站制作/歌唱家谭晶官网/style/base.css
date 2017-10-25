@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*基础CSS*/
+* {margin:0px;padding:0px;}
+body{ font-size:12px; font-family:"宋体",Verdana, Geneva, sans-serif; margin:0px; padding:0px; background-color:#F5F5F5;}
+h1,h2,h3,h4,h5,h6,div,ul,li,dl,dt,dd,textarea,input{ font-family:Verdana, Geneva, sans-serif; font-size:12px; padding:0px; margin:0px;}
+div,ul,li{ padding:0px; margin:0px; list-style:none;}
+img {border:0px;}
+body{ margin:0px auto; width:100%;height:auto;}
+a{ text-decoration:none; color:#666460;}
+.b{ font-weight:bold;}
+.w980{ width:980px;}.w960{ width:960px;}
+.w980,.w960{margin:0px auto; height:auto; clear: both;}
+.clear{clear:both; display:block; height:0px; line-height:0px;}
+.spacer{ height:5px; display:block; clear:both;}
+/*颜色控制*/
+.bg_gray{ background-color:#FAFAFA;}.bg_white{ background-color:#FFF;}.yellow{ color:#F58E15;}.green{ color:#5EB73F;}
+.red{ color:#F00;}.gray{ color:#ccc;}.green{ color: #093;}.blue{ color:#369;}.blue_gray{ color:#83C5DB;}
+.left{ text-align: left;}.right{ text-align:right;}.center{ text-align:center;}.hr1{ border-bottom:1px dotted #CCC; clear:both; margin:3px 0px;}
+.yahei{font-family:"微软雅黑","宋体",Verdana, Geneva, sans-serif;}
+/*高度间距控制*/
+.h10{ height:10px; line-height:10px; clear: both;} .h20{ height:20px; line-height:20px; clear:both; display:block;}
+.mt10{ margin-top:10px;} .mt20{ margin-top:20px;} .mt30{ margin-top:30px;} .m40{ margin-top:40px;}
+.mb10{ margin-bottom:120px;} .mb20{ margin-bottom:20px;} .mb30{ margin-bottom:30px;} .mb40{ margin-bottom:40px;}
+.mb12{margin-bottom:12px;}
+.ml2{ margin-left:2px;}.ml3{ margin-left:3px;}.ml4{ margin-left:4px;}.ml5{ margin-left:5px;}.ml6{ margin-left:6px;}.ml7{ margin-left:7px;}
+.ml10{ margin-left:10px;}.ml20{ margin-left:20px;}.ml30{ margin-left:30px;}.ml40{ margin-left:40px;}
+.center{ text-align:center;}
+.notice_msg{ font-size:13px; color:#333; line-height:170%; padding:8px 10px; border:1px  dotted #CCC; color:#7B7B7B; font-weight:normal; margin:8px auto;}
+.cursor{ cursor:pointer;}
+/*表单*/
+/*
+.form_input{ background:url(../images/common/bg-input.png) left top no-repeat; padding:2px; width:244px; height:16px; line-height:24px; border:1px solid #A7A6AA; }
+.form_input:focus,.form_textarea:focus,.form_input_small:focus{background-color:#FFFFD9;}
+.form_input_small{background:url(../images/common/bg-input.png) left top no-repeat; width:80px;border:1px solid #A7A6AA;height:25px; line-height:25px;}
+.form_input_lite{background:url(../images/common/input_lite_2.gif) left center no-repeat; width:30px; text-align:center;border:none; height:25px; line-height:25px;}
+.cart_form_input_lite{background:url(../images/cart/cart_samll.gif) left center no-repeat; width:30px; text-align:center;border:none; height:20px; line-height:20px;}
+.form_textarea{background:url(../images/common/bg-input.png) left top no-repeat; padding:2px;width:424px; height:110px; border:1px solid #A7A6AA; font-size:13px; line-height:160%;color:#333;}
+*/
+.form_submit{ background:url(../images/common/btn.gif) left top no-repeat; width:74px; height:23px; line-height:23px; border:none; color:#333;}
+.empty_input_val{ background-color:#FFFFD9;}
+/*文章列表*/
+.art_list{ padding:5px 10px 30px 20px; width:970px; margin:0px auto;}
+.art_list li{ height:20px;line-height:20px;overflow: hidden;padding: 3px 0; width:460px; margin:1px 3px; float:left; display:block;}
+.art_list li .tt{ float:left;}
+.art_list li a{ color:#333;}
+.art_list li a:hover{ color: #F60;}
+.art_list li span{ display:block; float:right; color: #999; font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:normal;}
+.art_list li .line{border-top: 1px dotted #CCCCCC;float: none;height: 10px;margin-top: 11px;overflow: hidden;}
+/*table*/
+.table_list{ border-collapse:collapse;}
+.table_list td{ padding:8px; border-bottom:1px solid #F1F1F1;}
+.table_list th{text-align:right; font-weight:bold; color:#717c87; width:100px;font-family:"微软雅黑","宋体",Verdana, Geneva, sans-serif; padding:7px; text-align:center; border-bottom:1px solid #D6D6D6;}
+/*返回顶部*/
+.backToTop {display: none;width: 18px;line-height: 1.2;padding: 5px 0;background-color: #000; color: #FFF;font-size: 12px;text-align: center;position: fixed;_position: absolute;right: 10px;bottom: 100px;_bottom: "auto";cursor: pointer;opacity: 0.8;filter: Alpha(opacity=80);}

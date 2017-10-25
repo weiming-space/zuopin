@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+body{ background:black;}
+#outer{width:910px; height:460px; border:1px solid #666; margin:100px auto}
+#inner{ width:900px; height:450px; background:white; border:5px solid #ececec; position:relative;}
+#inner div{ position:absolute; border:#6CC 1px solid;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var oInner=document.getElementById('inner');
+	oInner.onmousedown=function(e){
+		var e=e||window.event;
+		var disX=e.clientX-getPos(this).l;
+		var disY=e.clientY-getPos(this).t;
+		var oDiv=document.createElement('div');
+			oDiv.style.left=disX+'px';
+			oDiv.style.top=disY+'px';
+			oInner.appendChild(oDiv);
+
+		document.onmousemove=function(e){
+			var e=e||window.event;
+			var mouseX=e.clientX;
+			var mouseY=e.clientY;
+			if(mouseX<getPos(oInner).l){
+				mouseX=getPos(oInner).l;
+			}else if(mouseX>getPos(oInner).l+oInner.offsetWidth-12){
+				mouseX=getPos(oInner).l+oInner.offsetWidth-12;
+			}
+			if(mouseY<getPos(oInner).t){
+				mouseY=getPos(oInner).t;
+			}else if(mouseY>getPos(oInner).t+oInner.offsetHeight-12){
+				mouseY=getPos(oInner).t+oInner.offsetHeight-12;
+			}
+			var w=mouseX-getPos(oInner).l;
+			var h=mouseY-getPos(oInner).t;
+			oDiv.style.width=Math.abs(w-disX)+'px';	
+			oDiv.style.height=Math.abs(h-disY)+'px';
+			oDiv.style.left=Math.min(disX,w)+'px';
+			oDiv.style.top=Math.min(disY,h)+'px';
+		};
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+	
+}
+function getPos(ele,oRefer){
+	var pos={};
+	var oRefer=oRefer||document.body;
+	var l=ele.offsetLeft;
+	var t=ele.offsetTop;
+		if(window.navigator.userAgent.indexOf('MSIE 8.0') == -1){
+			l=l+ele.offsetParent.clientLeft;
+			t=t+ele.offsetParent.clientTop;
+			
+		}
+		
+	var oCur=ele.offsetParent;
+
+	while(oCur!=oRefer){
+		console.log(l);
+		if(window.navigator.userAgent.indexOf('MSIE 8.0')>-1){
+			l+=oCur.offsetLeft;
+			t+=oCur.offsetTop;
+		}else{
+			l+=oCur.offsetLeft+oCur.offsetParent.clientLeft;
+			t+=oCur.offsetTop+oCur.offsetParent.clientTop;
+			console.log(l);
+			console.log(t);
+		}
+
+		oCur=oCur.offsetParent;
+	}
+	pos.l=l;
+	pos.t=t;
+	return pos;
+}
+</script>
+</head>
+
+<body>
+<div id="outer">
+	<div id="inner"></div>
+</div>
+</body>
+</html>

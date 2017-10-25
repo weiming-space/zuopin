@@ -1,0 +1,92 @@
+/* CSS Document */
+
+ul{ list-style: none; margin:0px; padding:0px;}
+img{ vertical-align:bottom}
+h1,h2,h3,h4,h5{ margin:0px; padding:0px; font-style:normal}
+p{ margin:0px; padding:0px;}
+body{ margin:0px; font-family: "宋体"; font-size:12px; background:#C0C0C0}
+.zhengti{ width:990px; margin: 0 auto}
+/*头部开始*/
+.header{ width:990px;}
+.toptu{ width:990px; height:142px;}
+
+/*头部结束*/
+/*中部开始*/
+.content{ width:990px; background:#FFFFFF;}
+/*中部一*/
+
+/*中部二*/
+.mid2{ width:990px; height:34px; background: url(../images/11.gif)}
+.mid2 li{ width:90px;line-height:34px; text-align:center; float:right}
+.mid2 li a{ color:#FFFFFF; text-decoration:none}
+/*中部三*/
+.mid3{ width:990px; margin-top:10px; overflow:hidden; padding-bottom:10px; border-bottom:#C0C0C0 1px solid}
+.ps{ width:244px; margin-left:3px; float:left; display: inline}
+.tu{ width:244px; height:114px;}
+.tu img{ border:#CCCCCC 1px solid; padding:1px; vertical-align:bottom}
+.title{ width:244px; height:30px; line-height:30px; font-weight:bold; text-align:center; font-size:13px}
+.title a{ color:#8D0A0A; text-decoration:none}
+.zi{ width:215px; margin-left:10px; border-bottom:}
+.zi li{ width:215px; line-height:26px; text-indent:15px; background:url(../images/平面设计培训_35.gif) no-repeat 0px 4px; border-bottom:#8798AA 1px dotted}
+.zi li a{ color: #000000; text-decoration:none}
+.zi li a:hover{ color:#FF0000}
+/*中部四*/
+.mid4{ width:990px;overflow:hidden;padding-bottom:10px; border-bottom:#C0C0C0 1px solid }
+.san{ width:990px; margin-top:10px;  padding-bottom:10px; overflow:hidden}
+.jianjie{ width:322px; border:#A6A2A2 1px solid; margin-left:10px; padding-bottom:20px; display:inline; float:left}
+.jianjietitle{ width:322px; height:34px}
+.jianjietu{ width:319px; height:119px; border:#A6A2A2 1px solid;}
+.jianjiezi{ width:322px; line-height:25px;}
+.jianjiezi a{ color: #999999; text-decoration:none}
+.teacher{ width:293px; margin-left:10px; border:#CCCCCC 1px solid;float:left}
+.teachertitle{ width:293px; height:35px; padding-bottom:10px}
+.teachertu{ width:260px; margin-left:20px; border-bottom:#CCCCCC 1px dotted; overflow:hidden}
+.laoshi{ width:100px; height:100px; float:left}
+.laoshizi{ width:150px; line-height:20px; float:left; margin-left:10px; padding-top:10px}
+.laoshizi a{ color: #999999; text-decoration:none}
+.baoming{ width:293px; height:29px}
+.baomingzi{ width:260px; line-height:20px; margin-left:20px;}
+.baomingzi a{ color:#000000; text-decoration:none;}
+.baomingzi a:hover{ color:#FF0000}
+.star{ width:298px; height:310px;margin-left:10px; border:#CCCCCC 1px solid; padding-bottom:15px;float:left}
+.startitle{ width:298px; height:56px}
+.starstudent{ width:278px; margin-left:10px; border-bottom:#CCCCCC 1px dotted; padding-top:20px; padding-bottom:10px; height:51px }
+.startu{ width:68px; height:51px; margin-left:10px; float: left; display:inline}
+.starzi{ width:180px; height:51px; float:left; line-height:18px}
+.starzi a{ color:#999999; text-decoration:none}
+.js{ width:970px; margin-left:10px}
+.js img{ border:#FF0000 1px solid; margin-left:5px;}
+/*中部五*/
+.mid5{ width:990px; margin-top:10px; overflow:hidden; padding-bottom:10px}
+.list{ width:230px; border:#CCCCCC 1px solid; margin-left:5px; float:left; display:inline}
+.list_title{ width:230px; height:33px;}
+.list_content{ width:230px; text-align:center; padding-top:10px; padding-bottom:30px}
+.list2{ width:346px; float:left; margin-left:16px;}
+
+.list2_content{ width:346px;}
+.list2_content li{ width:346px; line-height:21px; text-indent:40px;}
+.list2_content li a{ color:#000000; text-decoration:none}
+.list3{ width:346px; float:left; margin-left:16px;}
+/*中部结束*/
+/*尾部开始*/
+.footer{ width:990px;}
+.daohang1{ width:990px; height:30px}
+.daohang{ width:990px; height:150px; background:#A29797}
+.daohang_ps{ width:150px; margin-left:20px; margin-top:15px; float:left; display:inline}
+.daohang_ps_title{ width:150px; line-height:30px; font-weight:bold; text-align:center; font-size:13px; color: #FFFFFF}
+.daohang_ps_content{ width:150px}
+.daohang_ps_content li{ width:150px; line-height:20px;}
+.daohang_ps_content li a{ color:#FFFFFF; text-decoration:none}
+.daohang_ps_content li a:hover{ color: #FF0000}
+.student{ width:100px;margin-top:15px; float:left ; margin-left:15px; display:inline}
+.student1{ width:100px; line-height:30px; font-weight:bold; text-align:center; font-size:13px; color: #FFFFFF}
+.student2{ width:100px}
+.student2 li{ width:100px; line-height:20px; text-align:center}
+.student2 li a{color:#FFFFFF; text-decoration:none;}
+.student2 li a:hover{ color:#FF0000;}
+.copyright{ width:990px; height:95px; background:#8B0C0C}
+.copyright p{ width:990px; line-height:30px; color:#FFFFFF; text-align:center; font-size:13px;}
+.copyright p a{ color:#FFFFFF; text-decoration:none}
+.tiaozhuan{ width:990px; height:20px; background:#FFFFFF}
+.select{ width:100px; float:right; line-height:20px; border:#FFFFFF 1px solid}
+/*尾部结束*/

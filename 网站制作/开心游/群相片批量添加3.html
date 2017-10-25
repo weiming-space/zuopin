@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/group.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<SCRIPT>
+var selects = document.getElementsByTagName('select');
+
+var isIE = (document.all && window.ActiveXObject && !window.opera) ? true : false;
+
+function $(id) {
+return document.getElementById(id);
+}
+
+function stopBubbling (ev) { 
+ev.stopPropagation();
+}
+
+function rSelects() {
+for (i=0;i<selects.length;i++){
+    selects[i].style.display = 'none';
+    select_tag = document.createElement('div');
+      select_tag.id = 'select_' + selects[i].name;
+      select_tag.className = 'select_box';
+    selects[i].parentNode.insertBefore(select_tag,selects[i]);
+
+    select_info = document.createElement('div'); 
+      select_info.id = 'select_info_' + selects[i].name;
+      select_info.className='tag_select';
+      select_info.style.cursor='pointer';
+    select_tag.appendChild(select_info);
+
+    select_ul = document.createElement('ul'); 
+      select_ul.id = 'options_' + selects[i].name;
+      select_ul.className = 'tag_options';
+      select_ul.style.position='absolute';
+      select_ul.style.display='none';
+      select_ul.style.zIndex='999';
+    select_tag.appendChild(select_ul);
+
+    rOptions(i,selects[i].name);
+    
+    mouseSelects(selects[i].name);
+
+    if (isIE){
+      selects[i].onclick = new Function("clickLabels3('"+selects[i].name+"');window.event.cancelBubble = true;");
+    }
+    else if(!isIE){
+      selects[i].onclick = new Function("clickLabels3('"+selects[i].name+"')");
+      selects[i].addEventListener("click", stopBubbling, false);
+    }    
+}
+}
+
+
+function rOptions(i, name) {
+var options = selects[i].getElementsByTagName('option');
+var options_ul = 'options_' + name;
+for (n=0;n<selects[i].options.length;n++){ 
+    option_li = document.createElement('li');
+      option_li.style.cursor='pointer';
+      option_li.className='open';
+    $(options_ul).appendChild(option_li);
+
+    option_text = document.createTextNode(selects[i].options[n].text);
+    option_li.appendChild(option_text);
+
+    option_selected = selects[i].options[n].selected;
+
+    if(option_selected){
+      option_li.className='open_selected';
+      option_li.id='selected_' + name;
+      $('select_info_' + name).appendChild(document.createTextNode(option_li.innerHTML));
+    }
+    
+    option_li.onmouseover = function(){ this.className='open_hover';}
+    option_li.onmouseout = function(){
+      if(this.id=='selected_' + name){
+        this.className='open_selected';
+      }
+      else {
+        this.className='open';
+      }
+    }
+
+    option_li.onclick = new Function("clickOptions("+i+","+n+",'"+selects[i].name+"')");
+}
+}
+
+function mouseSelects(name){
+var sincn = 'select_info_' + name;
+
+$(sincn).onmouseover = function(){ if(this.className=='tag_select') this.className='tag_select_hover'; }
+$(sincn).onmouseout = function(){ if(this.className=='tag_select_hover') this.className='tag_select'; }
+
+if (isIE){
+    $(sincn).onclick = new Function("clickSelects('"+name+"');window.event.cancelBubble = true;");
+}
+else if(!isIE){
+    $(sincn).onclick = new Function("clickSelects('"+name+"');");
+    $('select_info_' +name).addEventListener("click", stopBubbling, false);
+}
+
+}
+
+function clickSelects(name){
+var sincn = 'select_info_' + name;
+var sinul = 'options_' + name;
+
+for (i=0;i<selects.length;i++){ 
+    if(selects[i].name == name){        
+      if( $(sincn).className =='tag_select_hover'){
+        $(sincn).className ='tag_select_open';
+        $(sinul).style.display = '';
+      }
+      else if( $(sincn).className =='tag_select_open'){
+        $(sincn).className = 'tag_select_hover';
+        $(sinul).style.display = 'none';
+      }
+    }
+    else{
+      $('select_info_' + selects[i].name).className = 'tag_select';
+      $('options_' + selects[i].name).style.display = 'none';
+    }
+}
+
+}
+
+function clickOptions(i, n, name){    
+var li = $('options_' + name).getElementsByTagName('li');
+
+$('selected_' + name).className='open';
+$('selected_' + name).id='';
+li[n].id='selected_' + name;
+li[n].className='open_hover';
+$('select_' + name).removeChild($('select_info_' + name));
+
+select_info = document.createElement('div');
+    select_info.id = 'select_info_' + name;
+    select_info.className='tag_select';
+    select_info.style.cursor='pointer';
+$('options_' + name).parentNode.insertBefore(select_info,$('options_' + name));
+
+mouseSelects(name);
+
+$('select_info_' + name).appendChild(document.createTextNode(li[n].innerHTML));
+$( 'options_' + name ).style.display = 'none' ;
+$( 'select_info_' + name ).className = 'tag_select';
+selects[i].options[n].selected = 'selected';
+
+}
+
+window.onload = function(e) {
+bodyclick = document.getElementsByTagName('body').item(0);
+rSelects();
+bodyclick.onclick = function(){
+    for (i=0;i<selects.length;i++){ 
+      $('select_info_' + selects[i].name).className = 'tag_select';
+      $('options_' + selects[i].name).style.display = 'none';
+    }
+}
+}
+</SCRIPT>
+</head>
+
+<body>
+<div class="zhengti">
+<!--头部开始-->
+<div class="header">
+	<div class="top">
+		<div class="top_nav top_lan">
+		<ul>
+			<li><a href="#">使用帮助&nbsp;&nbsp;|</a></li>
+			<li><a href="#">注册&nbsp;&nbsp;|</a></li>
+			<li><a href="#">登录</a></li>
+		</ul>
+		</div>
+	</div>
+	<!--top结束-->	
+	<div class="nav">
+	    <div class="nav_top">
+			<div class="nav_left bai_se">
+				<ul>
+				  <li><a href="#">首&nbsp;&nbsp;页</a></li>
+				  <li><a href="#">旅游目的地</a></li>
+				  <li><a href="#">旅游攻略</a></li>
+				  <li><a href="#">结伴同行</a></li>
+				  <li><a href="#">旅游交友</a></li>
+				  <li><a href="#">旅游分享</a></li>
+				  <li><a href="#">旅游群组</a></li>
+				  <li><a href="#">旅游资讯</a></li>
+				</ul> 
+			</div>
+			<div class="nav_right huang_se">
+				<ul>
+				<li><a href="#">食宿</a></li>
+				<li><a href="#">票务</a></li>
+				<li><a href="#">&nbsp;旅行社</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--nav_top结束-->
+		<div class="nav_bottom">
+            <span class="hei_se" style="font-weight:bold;"><a href="#">群组主页&nbsp;&nbsp;</a><font class="xuxian_se">|</font></span>
+			<span class="hei_se"><a href="pic.html" target="_blank" >群组列表&nbsp;&nbsp;</a><font class="xuxian_se">|</font></span>
+			<span class="hei_se"><a href="youji.html" target="_blank" >我的群组&nbsp;&nbsp;</a></span>
+	
+		</div>
+		<!--nav_bottom结束-->
+	</div>
+	<!--nav结束-->
+</div>
+<!--头部结束-->
+<!--中部开始-->
+<div class="main">
+<!--注册群表开始-->
+<div class="group_zhuce">
+	<div class="piliang_title">
+		<div class="piliang_title_left">创业帮</div>
+		<div class="piliang_title_mid">群ID:106172050</div>
+		<div class="piliang_title_right">
+			<ul>
+				<li>群空间</li>
+				<li>群活动</li>
+				<li style="background:url(group_images/chuangye_06.jpg);">群论坛</li>
+				<li>群相册</li>
+				<li>群成员</li>
+			</ul>
+		</div>
+	</div>
+	<div class="piliang_content">
+		<div class="piliang_msg hei-se">请注意：您上传的图片，需要经过群主的审批，才会显示在群组相册中</div>
+		<div class="piliang_method"><span style="font-weight:bold">批量上传</span>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span>快捷上传</span></div>
+		<div class="piliang_method lanse"><strong>上传照片</strong></div>
+		<div class="piliang_fenlei">
+			<div class="piliang_fenlei_left"><img src="group_images/piliang3_06.jpg" /></div>
+			<div class="piliang_fenlei_right">
+				<div class="piliang_fenlei_shang top_lan">选择已有相册存放这些照片</div>
+				<div class="piliang_fenlei_shang"  id=uboxstyle >
+				    <SELECT id=language name=language>
+					  <OPTION value=English selected>请选择。</OPTION>
+					  <OPTION value=简体中文>简体中文</OPTION>
+					  <OPTION value=日本語>日本語</OPTION>
+					  <OPTION value=http://www.geekso.com>这一技客</OPTION>
+					</SELECT>
+				</div>
+			</div>
+			<div class="clear"></div>		
+		</div>
+		<div class="button10" id="button74">
+			<div class="button10_left"><input type="submit" name="Submit" value="返回" class="button10_btn" /></div>
+			<div class="button10_right"><input type="submit" name="Submit" value="上传" class="button10_btn"  /></div>
+		</div>
+	</div>
+</div>
+<!--注册群表结束-->
+</div>
+<!--中部结束-->
+<!--尾部开始-->
+<div class="footer" style="margin-top:10px;">
+	<div class="wei_nav lanse">
+		<span><a href="#">设为首页</a>&nbsp;|</span>
+		<span><a href="#">收藏本站</a>&nbsp;|</span>
+		<span><a href="#">关于一起游</a>&nbsp;|</span>
+		<span><a href="#">精品推荐</a>&nbsp;|</span>
+		<span><a href="#">使用协议</a>&nbsp;|</span>
+		<span><a href="#">版权声明</a>&nbsp;|</span>
+		<span><a href="#">联系我们</a>&nbsp;|</span>
+		<span><a href="#">网站地图</a>&nbsp;|</span>
+		<span><a href="#">网站帮助</a>&nbsp;|</span>
+		<span><a href="#">意见建议</a>&nbsp;|</span>	</div>
+	<div class="copyright hui_se">
+		<p>copyRight 2007 76 travel.com All Rights Reserved 版权所有 <a href="#">周末游旅游网</a> <a href="#">旅游共享平台</a> 京ICP备00002059号</p>
+		<p>建议使用1024*768以上的屏幕分辨率和6.0版本以上的IE来访问本站</p>
+		<p>联系请求：222222</p>
+		<p>流量统计</p>
+	</div>
+</div>
+<!--尾部结束-->
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	$("#button74 :input").mouseover(function(){
+		$(this).css({"color":"#1D719B","font-weight":"bold"});
+	}).mouseout(function(){
+		$(this).css({"color":"#191919","font-weight":"normal"});
+	})
+})
+
+</script>
+

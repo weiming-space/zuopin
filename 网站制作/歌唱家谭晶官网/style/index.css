@@ -1,0 +1,70 @@
+@charset "utf-8";
+@import url('base.css');
+@import url('global.css');
+	
+/*中间*/
+
+#site_main_content_body{ width:980px; height:1100px; overflow: hidden;  margin:0px auto; overflow: hidden;}
+#site_logo{background:url(../images/logo_a.png) 35px top no-repeat;width:600px; height:168px; float:left; clear:both; margin:40px 0px 0px 2px;}
+
+#pannel_main{
+	padding-top: 50px;
+	padding-right: 0px;
+	padding-bottom: 50px;
+	padding-left: 0px;
+}
+.index_left{ float:left; width:480px; height:1100px; overflow:hidden;}
+#pannel_main .slide{ padding:18px 0px 0px 46px; width:399px; height:244px; overflow:hidden; clear:both;}
+
+.index_left .index_shipin{
+	background:url(../images/v2.png) left top no-repeat;
+	width:412px;
+	height:213px;
+	float:right;
+	margin-top: 30px;
+	margin-right: 30px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	display: inline;
+}
+
+#index_vid{ width:160px; height:107px; background-color:#000; float:left; margin:75px 0px 0px 16px; overflow:hidden; text-align:center;}
+#index_vid_art{ float:right;width:170px; height:130px; padding:50px 30px 0px 0px; overflow:hidden; float:left;}
+#index_vid_art ul{ padding:16px 0px 0px 10px; overflow:hidden;}
+#index_vid_art ul li{ height:23px; line-height:23px;width:190px; overflow:hidden; clear:both; display:block;}
+#index_vid_art ul li img{ margin-top:3px;}
+#index_vid_art ul li a{ color:#A23760; font-size:12px; padding-left:5px;}
+/*#index_vid_art .li_first_art{background:url(../images/arg_bg_01.jpg) left  center no-repeat;}*/
+/*推荐新闻*/
+#index_notice{clear:both; padding:20px 0px 0px 155px;width:300px; height:180px;}
+#index_notice .notice_r1{ color:#F036D2; padding:20px 0px 0px 0px;_padding:5px 0px 0px 0px; width:260px;margin-left:10px; height:50px;}
+#index_notice .notice_r1 h2{color:#F036D2; font-size:12px; height:25px; line-height:25px;}
+#index_notice .notice_r1 p{ text-indent:24px; line-height:16px;}
+#index_notice .notice_r1 p a{ color:#F036D2;}
+#index_notice ul{ padding:20px 0px 0px 10px;}
+#index_notice ul li{ line-height:25px; height:25px; overflow:hidden;}
+#index_notice ul li a{ color:#6D6B67;}
+#index_notice ul li a:hover{ color:#F036D2;}
+
+#pannel_main .index_right{ width:480px; float:right; overflow:hidden;height:1100px;}
+#pannel_main .art1{ background:url(../images/c3_38.png) 0px 0px no-repeat; _background:url(../images/c3_38.png) 10px 10px no-repeat; width:290px; height:340px;}
+#ary_right_index{ padding:100px 0px 0px 40px;clear:both;overflow:hidden; width:260px; overflow:hidden;}
+#ary_right_index li{ height:24px; background:url(../images/art_bg_03.jpg) left center no-repeat; line-height:24px; overflow:hidden; width:220px; border-bottom:1px dotted #CD9fad;}
+#ary_right_index li a{ color:#5A5B5F; padding-left:15px;}
+#ary_right_index li a:hover{ color:#A23760;}
+#bofangqi{ position:relative; left:40px; top:90px;}
+
+#index_annance{ width:210px; height:100px;clear:both;height:120px; padding:0px 0px 0px 45px; margin-top:70px;_margin-top:60px;*margin-top:60px;position:relative;}
+#index_annance h2{ background-color:#E8E7E4; height:25px; text-align:center; line-height:25px; width:218px; margin-left:-10px; overflow:hidden;}
+#index_annance h2 samp{ display:block; float:left; width:180px; margin:0px auto;}
+#index_annance h2 .ico1{ float:left; display:block; padding:7px 0px 0px 5px;}
+#index_annance h2 .ico2{ float:right; display:block; padding:7px 5px 0px 0px; width:15px;}
+#index_annance ul{ margin-left:-10px; width:218px; overflow:hidden;height:97px;}
+#index_annance ul li{ line-height:25px; height:25px; font-size:12px; font-family:"宋体",Verdana, Geneva, sans-serif;}
+#index_annance ul samp{ color:#E24B9C;}
+#site_photos{width:300px; height:190px; margin:0px 0px 0px 0px; background:url(../images/phpto.png) 0px -15px no-repeat;}
+
+#index_right{ position:relative; z-index:100;}
+#index_ren{ position: absolute; background:url(../images/index_ren.png) left top; width:548px; height:1148px; top:40px; right:-80px; z-index:1001;}
+
+#foote_lin_bg{background:url(../images/foot_line_bg.jpg) left  bottom repeat-x; height:3px; position:relative; margin-top:-2px; z-index:1000; overflow:hidden; clear:both; font-size:0px; display:none;}

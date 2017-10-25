@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+body{ background:url(images/bodyBg.jpg) center center;}
+#div1{position:absolute; top:0; left:0; border:1px solid #ccc; padding:5px; _border-radius:5px 5px 5px 5px; display:none;}
+#div1 img{ width:224px; height:224px; };
+</style>
+
+</head>
+
+<body>
+<div id="div1"><img src="img/6.jpg" /></div>
+</body>
+</html>
+<script type="text/ecmascript">
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	var oImg=oDiv.children[0];
+	var prevX=0;
+	var prevY=0;
+	var iSpeedX=0;
+	var iSpeedY=0;
+	var timer=null;
+	var timer2=null;
+	var timer3=null;
+	timer3=setTimeout(function(){
+		if(getStyle(oDiv,'display')=='none'){			
+		var viewWidth=document.documentElement.clientWidth||document.body.clientWidth;
+		var viewHeight=document.documentElement.clientHeight||document.body.clientHeight;
+			document.title=viewWidth+'|'+viewHeight;
+			oDiv.style.display='block';
+			oImg.style.width=0;
+			oImg.style.height=0;
+			oDiv.style.borderColor="#ccc";
+			oDiv.style.left=viewWidth/2+'px';
+			oDiv.style.top=viewHeight/2+'px';
+			timer2=setInterval(function(){
+				if(oDiv.offsetWidth>=225){
+					clearInterval(timer2);
+					oDiv.style.borderColor="#FFF";
+					startMove();
+				}else{
+					oImg.style.width=oImg.offsetWidth+8+'px';
+					oImg.style.height=oImg.offsetHeight+8+'px';
+					oDiv.style.left=oDiv.offsetLeft-4+'px';
+					oDiv.style.top=oDiv.offsetTop-4+'px';
+				}
+			},30);
+		}else{
+			clearTimeout(timer3);
+		}
+	},200);
+
+		
+
+		oDiv.onmousedown=function(e){
+			clearInterval(timer);
+			var e=e||window.event;
+			var disX=e.clientX-this.offsetLeft;
+			var disY=e.clientY-this.offsetTop;
+			prevX=this.offsetLeft;
+			prevY=this.offsetTop;
+			document.onmousemove=function(e){
+				var e=e||window.event;
+				var l=e.clientX-disX;
+				var t=e.clientY-disY;
+				var viewWidth=document.documentElement.clientWidth||document.body.clientWidth;
+				var viewHeight=document.documentElement.clientHeight||document.body.clientHeight;
+				if(l<0){
+					l=0;
+				}else if(l>viewWidth-oDiv.offsetWidth){
+					l=viewWidth-oDiv.offsetWidth;
+				}
+				
+				if(t<0){
+					t=0;
+				}else if(t>viewHeight-oDiv.offsetHeight){
+					t=viewHeight-oDiv.offsetHeight;
+				}
+				
+				iSpeedX=l-prevX;
+				iSpeedY=t-prevY;
+				
+				oDiv.style.left=l+'px';
+				oDiv.style.top=t+'px';
+				
+				prevX=l;
+				prevY=t;
+				
+				if(oDiv.setCapture){
+					oDiv.setCapture();
+				}
+			}
+			document.onmouseup=function(){
+				if(oDiv.releaseCapture){
+					oDiv.releaseCapture();
+				}
+				document.onmousemove=null;
+				document.onmouseup=null;
+				startMove();
+			}
+			return false;
+		}
+		
+		function startMove(){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				iSpeedY+=3;
+				var l=oDiv.offsetLeft+iSpeedX;
+				var t=oDiv.offsetTop+iSpeedY;
+				var viewWidth=document.documentElement.clientWidth||document.body.clientWidth;
+				var viewHeight=document.documentElement.clientHeight||document.body.clientHeight;
+				if(l<0){
+					l=0;
+					iSpeedX*=-1;
+					iSpeedX*=0.75;
+				}else if(l>viewWidth-oDiv.offsetWidth){
+					l=viewWidth-oDiv.offsetWidth;
+					iSpeedX*=-1;
+					iSpeedX*=0.75;
+				}
+				
+				if(t<0){
+					t=0;
+					iSpeedY*=-1;
+					iSpeedY*=0.75;
+				}else if(t>viewHeight-oDiv.offsetHeight){
+					t=viewHeight-oDiv.offsetHeight;
+					iSpeedY*=-1;
+					iSpeedY*=0.75;
+					iSpeedX*=0.75;
+				}
+				if(Math.abs(iSpeedX)<1){
+					iSpeedX=0;
+				}
+				if(Math.abs(iSpeedY)<1){
+					iSpeedY=0;
+				}
+				oDiv.style.left=l+'px';
+				oDiv.style.top=t+'px';
+				
+			},30);
+		}
+		function getStyle(obj,sAttr){
+			if(obj.currentStyle){
+				return obj.currentStyle[sAttr];
+			}else{
+				return getComputedStyle(obj,false)[sAttr];
+			}
+		}
+}
+</script>

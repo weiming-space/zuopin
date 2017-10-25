@@ -1,0 +1,48 @@
+@charset "utf-8";
+@import url('base.css');
+@import url('global.css');
+#site_index{ height:1030px; overflow: hidden;}
+#site_index_main{}
+#zuhanti_main{ position:relative; width:980px; margin:0px auto;}
+#zuhanti_top{ background:url(../images/zhuanti/zuhyanti__001.jpg) center top no-repeat; height:285px; width:980px; overflow:hidden;}
+
+#zuhanti_main_content_body{ background:url(../images/zhuanti/zuhanti__002.png)  center top no-repeat; width:980px; height:1000px;margin:0px auto;}
+/*左边数据*/
+#zhuanti_left{ width:459px; float:left;/* height:600px; border:1px solid #000;*/}
+	#zhuanti_shiping{ background:url(../images/zhuanti/z11.png) left top no-repeat; width:400px; height:177px; margin:30px 0px 0px 50px;}
+	#zuhanti_slide{ clear:both; width:374px; height:244px; padding:25px 0px 0px 50px;}
+	#zhuanti_shiping h2{ width:100px; color:#FFF; font-size:14px; font-weight:bold; height:30px; line-height:30px; padding:5px 0px 10px 30px;}
+	#zhuanti_shiping .img{ float: left; margin:0px 10px 10px 15px; overflow:hidden; width:164px; height:115px;}
+	#zhuanti_shiping .contet{ float:left;}
+	#zhuanti_shiping .contet li{ height:21px; line-height:21px;}
+	#zhuanti_shiping .contet li a{ padding-left:5px; color:#923b6a; line-height:24px;}
+	#zhuanti_shiping .contet li a:hover{ color:#C36;}
+	
+	#zhuanti_zhuanji{ background:url(../images/zhuanti/z12.png) left top no-repeat;width:400px; height:177px; margin:10px 0px 0px 50px;}
+	#zhuanti_zhuanji h2{width:100px; color:#FFF; font-size:14px; font-weight:bold; height:30px; line-height:30px; padding:2px 0px 10px 15px;}
+	#zhuanti_zhuanji ul{ margin-left:30px;}
+	#zhuanti_zhuanji ul li{ float:left; width:180px; height:24px; line-height:24px; background: url(../images/zhuanti/music_11.png) left center no-repeat; overflow:hidden;}
+	#zhuanti_zhuanji ul li a{padding-left:15px; color:#923b6a;}
+	#zhuanti_zhuanji ul li a:hover{ color:#C36;}
+
+/*右边数据*/
+#zuhanti_right{ width:516px;float:left; height:600px;}
+	#zuhanti_news{width:410px; height:170px; margin:50px 0px 0px 46px;}
+	.z_top .img{ float:left; width:101px; height:71px; margin:10px 5px 5px 10px;}
+	.z_top .notice_r1{ float:left; width:280px; margin:15px 0px 0px 4px; overflow:hidden;}
+	.z_top .notice_r1 h2{ color:#F036D2;}
+	.z_top .notice_r1 p{ color:#FF7CD0; line-height:20px; height:40px; text-indent:24px; overflow:hidden;}
+	.z_top .notice_r1 p,.z_top .notice_r1 p a{ color:#FF7CD0;}
+	#zuhanti_news ul{ margin:10px 0px 0px 20px;}
+	#zuhanti_news ul li{ height:23px; line-height:23px; background:url(../images/page/dot2.jpg) left center no-repeat;}
+	#zuhanti_news ul li a{ color:#6D6B66; line-height:23px; height:23px;padding-left:10px;}
+	#zuhanti_news ul li a:hover{ color:#C36;}
+	/*照片*/
+	#zhuanti_zhaopian{ width:475px; height: 600px; margin:30px 0px 0px 30px;}
+	#zhuanti_zhaopian .zhuanti_top{ background:url(../images/zhuanti/zhuanti3.png) left top no-repeat; width:221px; height:35px; clear:both;}
+		#zhuanti_zhaopian .zhuant_pic_content{ margin:20px 0px 0px 15px;}
+		#zhuanti_zhaopian .zhuant_pic_content p{ float:left; width:120px; height:110px; overflow:hidden;  margin:0px 25px 10px 0px;}
+		.zhuant_pic_content p .img{ width:98px; height:72px; padding:2px; border:1px solid #EEE1EB; overflow:hidden; display:block; margin:0px auto;}
+		.zhuant_pic_content p .img img{ display:block; margin:2px auto;}
+		.zhuant_pic_content p .title{ display:block; height:20px; line-height:20px; margin:10px 0px 0px 0px; text-align:center; overflow:hidden;}
+		.zhuant_pic_content p .title:hover{ color:#C36;}

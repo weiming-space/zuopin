@@ -1,0 +1,32 @@
+/* CSS Document */
+ul{ list-style:none; margin:0px; padding:0px;}
+h1,h2,h3,h4,h5{ margin:0px; padding:0px; font-style:normal}
+img{ margin:0px; padding:0px; vertical-align:bottom}
+body{ margin:0px; font-family: "宋体"; font-size:12px; background:#C0C0C0}
+
+.zhengti{ width:990px; margin: 0 auto}
+.header{ width:990px; overflow:hidden}
+.logotu{ width:990px; height:153px;}
+.nar{ width:990px; height:32px;}
+.nar img{ vertical-align:bottom}
+/*中部开始*/
+.content{ width:990px; background:#FFFFFF; padding-bottom:20px; overflow:hidden}
+.mid1{ width:990px}
+.mid_shang{ width:990px; line-height:10px; background:#FF0000}
+.listtu{ width:990px; height:130px}
+.mid1xia{ width:990px; height:16px}
+.mid2{ width:990px; overflow:hidden}
+.left{ width:173px; margin-left:25px; float:left; display:inline}
+.left .shang{ width:173px; height:69px }
+.left .zhong{ width:173px; height:123px;}
+.left .xia{ width:173px; height:123px}
+.right{ width:744px; float:left; margin-left:15px;}
+.right .shang{ width:744px; height:79px}
+.right .zhong{ width:740px; border-left:#DBDBDB 2px solid; border-right:#DBDBDB 2px solid}
+.zi{ width:660px; margin:0 auto}
+.right .xia{ width:744px; height:77px}
+/*中部结束*/
+.footer{ width:990px;}
+.nar_title{ width:990px; height:30px}
+.nar_content{ width:990px; height:150px}
+.copyright{ width:990px; height:75px}

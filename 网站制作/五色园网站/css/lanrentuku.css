@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul,li { text-transform:capitalize;}
+.clear {clear:both; *display:inline;/*IE only*/}
+
+/*menu*/
+#nav { width:990px; display:block; height:32px;}
+
+
+#nav .mainlevel {background:url(../images/1.gif) repeat-x; float:left; width:110px; font-size:13px; font-weight:bold/*IE6 only*/}
+#nav .mainlevel a {color: #FFFFFF; text-decoration:none; line-height:32px; display:block; width:110px; text-align:center}
+#nav .mainlevel a:hover {color: #FF0000; text-decoration:none; background:#062723 url(../images/slide-panel_03.png) 0 0 repeat-x;}
+#nav .mainlevel ul {display:none; position:absolute; font-size:12px; font-weight:normal}
+#nav .mainlevel li {border-top:1px solid #fff;background: #333333; width:110px;;/*IE6 only*/}
+.log {text-align:center; color:skyblue; line-height:24px; text-transform:capitalize; margin:50px auto;}

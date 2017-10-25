@@ -1,0 +1,97 @@
+@charset "gb2312";
+/* CSS Document */
+
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	margin:0px;
+	padding:0px;
+	font-family:"宋体";
+	font-size:12px;
+	background-color:#ebebeb;
+}
+
+a {
+	color:#000;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#F00;
+}
+
+li {
+	list-style:none;
+}
+
+img {
+	border:none;
+}
+.input01 {width:130px; border:1px #4b91ed; background-color:#c8f0ff;}
+.input02 {width:60px; border:1px #4b91ed; background-color:#c8f0ff;}
+.input03 {width:110px; border:1px #4b91ed; background-color:#c8f0ff;}
+.input04 {width:460px;}
+
+/* 头部 */
+#top {
+	width:1002px;
+	height:108px;
+	overflow:hidden;
+	margin:0px auto;
+	background-image:url(../images/logo.jpg);
+}
+
+/* 导航 */
+#menu {
+	width:914px;
+	height:auto;
+	overflow:hidden;
+	margin:0px auto;
+	background:url(../images/menubg.jpg) repeat-x;
+	background-position:left top;
+	padding-left:88px;
+	color:#FFFFFF;
+}
+#menu ul {
+	width:auto;
+	float:left;
+	overflow:hidden;
+	height:auto;
+}
+#menu ul li {
+	width:96px;
+	float:left;
+	overflow:hidden;
+	height:41px;
+}
+
+/* banner大图 */
+#banner {
+	width:1002px;
+	height:auto;
+	overflow:hidden;
+	margin:0px auto;
+}
+
+
+/* 主体框架 */
+#content {
+	width:986px;
+	height:auto;
+	overflow:hidden;
+	margin:0px auto;
+	padding:20px 8px;
+	background-color:#e2e9ee;
+}
+
+/* 版权信息 */
+#copyright {
+	width:1002px;
+	height:79px;
+	line-height:24px;
+	margin:0px auto;
+	background:url(../images/copyrightbg.jpg) repeat-x;
+}

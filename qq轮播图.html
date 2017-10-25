@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+img{ vertical-align:bottom;}
+:focus{ outline:none;}
+:focus{-moz-outline-style:none;}
+a{ blr:expression(this.onFocus=this.blur())}
+h2{ font-weight:normal;}
+body{ background:#EFEFEF; font-size:12px;font:12px/20px Tahoma,"hiragino sans gb",Helvetica,Arial;}
+
+#box{ width:660px; height:330px; margin:60px auto 0; position:relative;}
+#pic_list{ position:relative;z-index:1;}
+#pic_list li{ position:absolute; top:0; left:0; z-index:1;opacity:0;filter:alpha(opacity:0);}
+.mark{ width:660px; height:90px; left:0; bottom:0; background:#000; position:absolute; z-index:1;filter:alpha(opacity:30); opacity:0.3;}
+#text_list{ position:absolute; height:20px; bottom:60px; left:50px; z-index:5; overflow:hidden;}
+#text_list h2{ display:none;}
+#text_list .show{ display:block;}
+#text_list a{ font-size:18px; font-family: "Microsoft YaHei"; text-decoration:none; color:#fff;}
+#ico_list{ position:absolute; bottom:10px; left:10px; width:525px; height:46px; z-index:3; overflow:hidden;}
+#ico_list ul{ position:absolute; left:0; top:0; width:1050px;}
+#ico_list li{ width:75px; float:left;}
+#ico_list li a{ padding-top:6px; display:block; width:68px;}
+#ico_list li a img{ width:64px; height:36px;background:#040303;opacity:0.7;filter:alpha(opacity=70); border:2px solid #DFE8E4;}
+#ico_list .active{background:url(img/a_hover.gif) no-repeat center 0;}
+#ico_list .active img{opacity:1;filter:alpha(opacity=100);border: 3px solid #fff; height:34px;width:62px;}
+.btn{background:url(img/btn.gif) no-repeat;height:38px;width:38px;position: absolute;bottom:11px; opacity:0.5;filter:alpha(opacity=50);cursor:default;z-index:3;}
+.showBtn{opacity:1;filter:alpha(opacity=100);cursor:pointer;z-index:4;}
+#btn_prev{right:56px;}
+#btn_next{right:20px;background-position:right 0;}
+</style>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var oBox=document.getElementById('box');
+	var aPicLi=document.getElementById('pic_list').getElementsByTagName('li');
+	var oTxtH2=document.getElementById('text_list').getElementsByTagName('h2');
+	var oIcoUl=document.getElementById('ico_list').getElementsByTagName('ul')[0];
+	var aIcoLi=oIcoUl.getElementsByTagName('li');
+	var oBtnPrev=document.getElementById('btn_prev');
+	var oBtnNext=document.getElementById('btn_next');
+	var step=0;
+	var iNow=0;
+	var timer=null;
+		for(var i=0; i<aIcoLi.length; i++){
+			aIcoLi[i].index=i;
+			aIcoLi[i].onclick=function(){
+				
+				if(iNow==this.index){
+					return ;
+				}
+				iNow=this.index;
+
+				tab();
+				
+				
+			}
+		}
+		
+		function tab(){
+			for(var i=0; i<aIcoLi.length; i++){
+				aPicLi[i].style.filter='alpha(opacity:0)';
+				aPicLi[i].style.opacity=0;
+				aIcoLi[i].className='';
+				oTxtH2[i].className='';
+				clearInterval(aPicLi[i].timer);
+			}
+			move(aPicLi[iNow],{opacity:100});	
+			aIcoLi[iNow].className='active';
+			oTxtH2[iNow].className='show';		
+		}
+		
+		oBtnNext.onclick=function(){
+			if(step<aIcoLi.length-7){
+				step++;
+				leftMove();
+			}
+		};
+		oBtnPrev.onclick=function(){
+			if(step>0){
+				step--;				
+				leftMove();
+			}
+		};
+		
+		timer=setInterval(autoMove,3000);
+		oBox.onmouseover=function(){
+			clearInterval(timer);
+		}
+		oBox.onmouseout=function(){
+			timer=setInterval(autoMove,3000);
+		}
+		
+		function autoMove(){
+			iNow++;
+			if(iNow == aIcoLi.length){
+				iNow=0;
+			}
+			if(iNow>=7){
+				step=iNow-6;	
+			}
+			if(iNow<step){
+				step=iNow;
+			}
+			leftMove();
+			tab();	
+		}
+		
+		function leftMove(){
+			move(oIcoUl,{left:-step*75});
+			oBtnPrev.className= step==0 ? 'btn' : 'btn showBtn';
+			oBtnNext.className= step==aIcoLi.length-7 ? 'btn' :'btn showBtn';		
+		}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+  <ul id="pic_list">
+    <li style="filter:alpha(opacity:100);opacity:1"><img src="img/pic_1.jpg" /></li>
+    <li><img src="img/pic_2.jpg" /></li>
+    <li><img src="img/pic_3.jpg" /></li>
+    <li><img src="img/pic_4.jpg" /></li>
+    <li><img src="img/pic_5.jpg" /></li>
+    <li><img src="img/pic_6.jpg" /></li>
+    <li><img src="img/pic_7.jpg" /></li>
+    <li><img src="img/pic_8.jpg" /></li>
+    <li><img src="img/pic_9.jpg" /></li>
+    <li><img src="img/pic_10.jpg" /></li>
+    <li><img src="img/pic_11.jpg" /></li>
+    <li><img src="img/pic_12.jpg" /></li>
+    <li><img src="img/pic_13.jpg" /></li>
+    <li><img src="img/pic_14.jpg" /></li>
+  </ul>
+  <div class="mark"></div>
+  <ul id="text_list">
+  	<li><h2 class="show"><a href="#">《武则天秘史》[至22集]姐姐与皇上偷情，媚娘抓奸在床...</a></h2></li>
+    <li><h2><a href="#">《无底洞》金钱、美女、权利、复仇等欲望让人不可自拔...</a></h2></li>
+    <li><h2><a href="#">《巴黎宝贝》邓超巴黎当奶爸，上演基情、卖萌、跨国恋..</a></h2></li>
+    <li><h2><a href="#">《我的女儿是花儿》[至3集]“富二代”冰王子恋上贫家女..</a></h2></li>
+    <li><h2><a href="#">《法证先锋3》[至26集]写字楼惊现“女僵尸”尸体！</a></h2></li>
+    <li><h2><a href="#">《非常了得》孟非郭德纲大曝台下私生活，内地Hold姐来挑战</a></h2></li>
+    <li><h2><a href="#">第二届九分钟电影11月20日独家首映 视觉盛宴恭迎各位看官</a></h2></li>
+    <li><h2><a href="#">《快女微电影》 洪辰脸伤痊愈 快女微电影收官作复拍</a></h2></li>
+    <li><h2><a href="#">《称心如意》京城第一“育婴男”Hold住全场 萝莉热舞走光</a></h2></li>
+    <li><h2><a href="#">《男人帮》[全30集]悲喜双响炮，一个完美结局</a></h2></li>
+    <li><h2><a href="#">《辛亥革命》成龙、赵文瑄、李冰冰、胡歌演绎革命腥风血雨</a></h2></li>
+    <li><h2><a href="#">《李献计历险记》房祖名患差时症为寻女友开启超时空冒险</a></h2></li>
+    <li><h2><a href="#">Justin bieber女友动感热单全球首发。</a></h2></li>
+    <li><h2><a href="#">第八届中国（重庆）国际园林博览会</a></h2></li>
+  </ul>
+  <div id="ico_list">
+  	<ul>
+    	<li class="active"><a href="#"><img src="img/ico_1.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_2.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_3.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_4.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_5.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_6.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_7.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_8.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_9.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_10.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_11.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_12.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_13.jpg" /></a></li>
+        <li><a href="#"><img src="img/ico_14.jpg" /></a></li>	
+    </ul>
+  </div>
+  <a id="btn_prev" href="javascript:;" class="btn"></a>
+  <a id="btn_next" href="javascript:;" class="btn showBtn"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+img{ vertical-align:bottom;}
+body{ background:url(images/bg01.jpg) repeat;}
+#div1{ width:100%; position:absolute; bottom:0; text-align:center;}
+</style>
+<script type="text/javascript">
+document.onmousemove=function(e){
+	var e=e||window.event;
+	var oDiv=document.getElementById('div1');
+	var aImg=oDiv.children;
+		for(var i=0; i<aImg.length; i++){
+			var x=aImg[i].offsetLeft+aImg[i].offsetWidth/2;
+			var y=aImg[i].offsetTop+oDiv.offsetTop+aImg[i].offsetHeight/2;
+			
+			var a=e.clientX-x;
+			var b=e.clientY-y;
+			var c=Math.sqrt(a*a+b*b);
+			
+			var scale=1-c/300;
+			
+			if(scale<0.5){
+				scale=0.5;
+			}
+			console.log(scale);
+			aImg[i].width=scale*128;
+		}	
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+    <img src="images/apple1.png" width="64" />
+    <img src="images/apple2.png" width="64" />
+    <img src="images/apple3.png" width="64" />
+    <img src="images/apple4.png" width="64" />
+    <img src="images/apple5.png" width="64" />
+</div>
+</body>
+</html>

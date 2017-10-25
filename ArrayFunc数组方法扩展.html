@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+window.onload=function(){
+	var arr=[1,2,3,4];
+	
+	
+	//给数组添加方法: 判断数组中是否包含元个元素,如果在,返加索引,不存在返回-1,求救没有找到
+	Array.prototype.contains=function(Ele){
+		var arr=this;
+		for(var i=0; i<arr.length; i++){
+			if(arr[i]==Ele){
+				return i;
+			}
+		}
+		return -1;
+	}
+	//测试运行代码;
+	//arr.contains('bb')
+	//给数组添加方法: 输出数组中最大值的方法
+	Array.prototype.maxNum=function(){
+		var arr=this;
+		return Math.max.apply([],arr);
+	}
+	//测试运行代码:
+	//arr.maxNum();
+	//给数组方法: 输出数组中最小的值的方法
+	Array.prototype.min=function(){
+		return Math.min.apply([],this);
+	};
+	//测试运行代码:
+	//arr.min();
+	//给数组添加方法:从数组的的后面查找返回位置,返回的是(倒数第几个);
+	Array.prototype.lastIndexOf=function(Ele){
+		var arr=this;
+		for(var i=arr.length-1; i>=0; i--){
+			if(arr[i]==Ele){
+				return arr.length-i;
+			}
+		}
+		return -1;
+	}
+	//测试运行代码:
+	//arr.lastIndexOf(5);
+	//给数组添加方法:数组排序的方法(倒序)
+	Array.prototype.sortDesc=function(){
+		var arr=this;
+		arr.sort(function(n1,n2){
+			return n2-n1;
+		});
+		return arr;
+
+	}
+	//测试运行代码:
+	//arr.sortDesc();
+	//给数组添加方法:数组排序的方法(升序),包括大于10的数字
+	Array.prototype.sortAsc=function(){
+		var arr=this;
+		arr.sort(function(n1,n2){
+			return n1-n2;
+		});
+		return arr;
+
+	}
+	//测试运行代码:
+	//arr.sortAsc();
+	//给数组添加方法:找出数组主数（一个数字在数组出现次数大于总数一半）前提是条件必须成立。
+	Array.prototype.mainNum=function(){
+		var arr=this;
+		var len=arr.length;
+		arr.sortAsc();
+		return arr[Math.ceil((len/2)-1)]
+	}
+	//arr.mainNum();
+	//给数组添加方法:删除数组中的某个元素
+	Array.prototype.remove=function(Ele){
+		var arr=this;
+		for(var i=0; i<arr.length; i++ ){
+			if(arr[i]==Ele){
+				arr.splice(i,1);  
+				
+				i--;
+			}
+		}
+		return arr;
+	}
+	//arr.remove(10)
+	//给数组添加方法:删除数组中的某个位置的元素
+	Array.prototype.removeAt=function(i){
+		var arr=this;
+		arr.splice(i,1);  
+		return arr;
+	}
+	//arr.removeAt(1)
+	//给数组添加方法:清空数组
+	Array.prototype.empty=function(i){
+		var arr=this;
+		arr.length=0;
+		return arr;
+	}
+	//arr.empty()
+	//给数组添加方法:删除数组中重复的元素
+	Array.prototype.unique=function(){
+		var newArr=[];
+		for(var i=0; i<this.length; i++){
+			if(newArr.toString().indexOf(this[i]) == -1){
+				newArr.push(this[i]);
+			}	
+		}
+		return newArr;
+	}
+	//arr.unique();
+	//给数组添加方法:打乱数组中元素的顺序
+	Array.prototype.shuffle=function(){
+		var arr=this;
+		var len=arr.length;
+		var tmp=0;
+		var j=0;
+		for(var i=len;i;){
+			j=parseInt(Math.random()*len);
+		    tmp=arr[--i];
+			arr[i]=arr[j];
+			arr[j]=tmp;
+			
+		}
+		
+		return arr;
+	}
+	alert(arr.shuffle());
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

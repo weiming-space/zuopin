@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0;}
+body{background:#EBEBED;_position:relative;_height:100%;}
+img{border:none;display:block;}
+li{list-style:none;}
+.page{
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: rgba(0,0,0,0.3) 0 1px 3px; 
+	background:#FFFFFF;
+	border-color: #E5E5E5 #DBDBDB #D2D2D2;
+	border-style: solid;
+	border-width: 1px;
+	margin:170px auto 0;
+	width:980px;
+}
+.box{
+	overflow: hidden;
+	position: relative;
+	width: 820px;
+	z-index: 0;
+	height:158px;
+	margin: 0 70px;
+}
+.box_head{
+	width: 1680px;	
+}
+.box_head li{
+	width:140px; 
+	float:left;
+	text-align: center;
+}
+a{
+	text-decoration:none;
+	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+	color:#7F7F7F;
+}
+.box_head li a:hover{color:#333;}
+.box_foot{
+	height:30px; 
+	text-align:center; 
+	background:#fff; 
+	overflow:hidden;
+	background:url(img/nav_bg.png) no-repeat 0 0;
+	background:-moz-linear-gradient(center bottom, rgba(223,223,223,1) 0%, rgba(242,242,242,1) 66%, rgba(242,242,242,1) 90%, rgba(230,230,230,1) 93%, rgba(190,190,190,1) 96%, rgba(150,150,150,1) 100%);
+	background:-webkit-gradient(linear, left bottom, left top, from(rgba(223,223,223,1)), color-stop(66%, rgba(242,242,242,1)), color-stop(90%, rgba(242,242,242,1)), color-stop(93%, rgba(230,230,230,1)), color-stop(96%, rgba(210,210,210,1)), to(rgba(140,140,140,1)));
+	border-bottom:1px solid #ebebeb;
+	position:relative;
+}
+.caret{
+	background: url(img/caret_active.gif) no-repeat scroll 0 0;
+    display: block;
+    height: 8px;
+    margin: 0 0 -8px -7px;
+    position: absolute;
+    width: 15px;
+}
+.box_foot a{
+ 	display: inline-block;
+    margin: 0 15px;
+    padding: 8px 0 6px;
+	cursor:pointer;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.box_foot .show{
+    cursor: default;
+    color:#2B2B2B;	
+}
+.box_foot a:hover{color:#000;}
+</style>
+<script type="text/javascript" src="js/effects.js"></script>
+<script type="text/javascript">
+function getByClass(oParent,attr){
+	var aEle=oParent.getElementsByTagName('*');
+	var aResult=[];
+	var reg=new RegExp('\\b'+attr+'\\b','g');
+	for(var i=0; i<aEle.length; i++){
+		if(reg.test(aEle[i].className)){
+			aResult.push(aEle[i]);
+		}
+	}
+	return aResult;
+}
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	var oUl=getByClass(oDiv,'box_head')[0];
+	var aLi=oUl.getElementsByTagName('li');
+	var oBox_foot=getByClass(oDiv,'box_foot')[0];
+	var aA=oBox_foot.getElementsByTagName('a');
+	var oSpan=oBox_foot.getElementsByTagName('span')[0];
+	var aPos=[];
+		for(var i=0; i<aLi.length; i++){
+			aPos.push(aLi[i].offsetLeft);
+		};
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].style.position='absolute';
+			aLi[i].style.left=aPos[i]+'px';
+			aLi[i].style.margin='0px';
+		};
+		aA[1].onclick=function(){
+			var i=1;
+			var timer2=null;
+			clearTimeout(timer2);
+			startMove(aLi[0],{left:-600},'flex');
+			var timer=setInterval(function(){
+				startMove(aLi[i],{left:-600},'flex');
+				i++;
+				if(i>=aLi.length/2){
+					clearInterval(timer);
+					timer2=setTimeout(next,500);
+				}
+			},300);
+			
+			function next(){
+	
+				var timer=setInterval(function(){
+					startMove(aLi[i],{left:aPos[i-aLi.length/2]},'flex');						   
+					i++;
+					if(i==aLi.length){
+						timer2=clearInterval(timer);
+					}
+					
+				},300);
+			};
+			this.className='show';
+			aA[0].className='';
+			
+			startMove(oSpan,{left:this.offsetLeft+this.offsetWidth/2},'buffer');
+		};
+		
+		aA[0].onclick=function(){
+			var i=aLi.length;
+			var timer2=null;
+			clearTimeout(timer2);
+			var timer=setInterval(function(){
+				i--;
+				startMove(aLi[i],{left:aPos[i]},'flex');
+				
+				if(i==aLi.length/2){
+					clearInterval(timer);
+					timer2=setTimeout(next,500);
+				}
+			},300);
+			function next(){
+				var timer=setInterval(function(){
+					startMove(aLi[i],{left:aPos[i]},'flex');
+					i--;
+					if(i==-1){
+						clearInterval(timer);
+					}
+				},300);
+			};
+			this.className='show';
+			aA[1].className='';
+			
+			startMove(oSpan,{left:this.offsetLeft+this.offsetWidth/2},'buffer');
+		}
+		
+}
+
+</script>
+</head>
+
+<body>
+
+<div id="div1" class="page">
+	<div class="box">
+			<ul class="box_head">
+				<li><a href="#"><img src="img/a1.jpg" alt=""/>iPod shuffle</a></li>
+				<li><a href="#"><img src="img/a2.jpg" alt=""/>iPod nano</a></li>
+				<li><a href="#"><img src="img/a3.jpg" alt=""/>iPod classic</a></li>
+				<li><a href="#"><img src="img/a4.jpg" alt=""/>iPod touch</a></li>
+				<li><a href="#"><img src="img/a5.jpg" alt=""/>Apple TV</a></li>
+				<li><a href="#"><img src="img/a6.jpg" alt=""/>Accessories</a></li>
+				<li><a href="#"><img src="img/a7.jpg" alt=""/>Download iTunes 10</a></li>
+				<li><a href="#"><img src="img/a8.jpg" alt=""/>iTunes Gift Cards</a></li>
+				<li><a href="#"><img src="img/a9.jpg" alt=""/>Nike + iPod</a></li>
+				<li><a href="#"><img src="img/a10.jpg" alt=""/>(PRODUCT) RED</a></li>
+				<li><a href="#"><img src="img/a11.jpg" alt=""/>MobileMe</a></li>
+				<li><a href="#"><img src="img/a12.jpg" alt=""/>In-Ear Headphones</a></li>
+			</ul>
+	</div>
+	<div class="box_foot">
+		<span style="left: 424px;" class="caret"></span>
+		<a class="show">Products</a>
+		<a>iTunes and more</a>
+	</div>
+</div>
+
+
+</body>
+</html>

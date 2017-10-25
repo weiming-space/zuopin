@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+body{ background:#666;}
+img{ vertical-align:bottom;}
+#div1{ width:390px; height:300px;margin:100px auto; border:10px solid #ccc; padding:5px; }
+#div1 ul{ width:390px; height:300px; position:relative; top:0; left:0;}
+
+#div1 ul li{ float:left; display:inline; margin:5px;}
+#div1 ul li img{ border-color:#ccc; border-style:solid; border-width:0px;}
+</style>
+<script type="text/javascript" src="js/huanChong.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.children[0];
+	var aImg=oUl.getElementsByTagName('img');
+	var zIndex=2;
+		for(var i=aImg.length-1;i>=0; i--){
+			aImg[i].style.left=getPos(aImg[i],oUl).l+'px';
+			aImg[i].style.top=getPos(aImg[i],oUl).t+'px';
+			aImg[i].style.position='absolute';
+			aImg[i].style.margin='0px';
+		}
+		for(var i=0; i<aImg.length; i++){
+			aImg[i].onmouseover=function(){
+				this.style.zIndex=zIndex++;
+				startMove(this,{width:200,marginLeft:-40,marginTop:-30,borderWidth:3});
+			};
+			aImg[i].onmouseout=function(){
+				startMove(this,{width:120,marginLeft:0,marginTop:0,borderWidth:0});	
+			};
+		}
+}
+function getPos(ele,oRefer){
+	var pos={};
+	var oRefer=oRefer||document.body;
+	var l=ele.offsetLeft;
+	var t=ele.offsetTop;
+		if(window.navigator.userAgent.indexOf('MSIE 8.0') == -1){
+			l=l+ele.offsetParent.clientLeft;
+			t=t+ele.offsetParent.clientTop;
+			
+		}
+		
+	var oCur=ele.offsetParent;
+
+	while(oCur!=oRefer){
+		
+		if(window.navigator.userAgent.indexOf('MSIE 8.0')>-1){
+			l+=oCur.offsetLeft;
+			t+=oCur.offsetTop;
+		}else{
+			l+=oCur.offsetLeft+oCur.offsetParent.clientLeft;
+			t+=oCur.offsetTop+oCur.offsetParent.clientTop;
+
+		}
+
+		oCur=oCur.offsetParent;
+	}
+	pos.l=l;
+	pos.t=t;
+	return pos;
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+    <ul>
+        <li><img src="images/box1.jpg" width="120" /></li>
+        <li><img src="images/box2.jpg" width="120"  /></li>
+        <li><img src="images/box3.jpg" width="120"  /></li>
+        <li><img src="images/box4.jpg" width="120"  /></li>
+        <li><img src="images/box5.jpg" width="120"  /></li>
+        <li><img src="images/box6.jpg" width="120"  /></li>
+        <li><img src="images/box7.jpg" width="120"  /></li>
+        <li><img src="images/box8.jpg" width="120"  /></li>
+        <li><img src="images/box9.jpg" width="120"  /></li>  
+    </ul>  
+</div>
+</body>
+</html>

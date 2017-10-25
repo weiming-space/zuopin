@@ -1,0 +1,50 @@
+		#roll_dangan {
+			WIDTH: 740px; POSITION: relative; HEIGHT:8px; TEXT-ALIGN: left
+		}
+/*上面是：最外层的盒子也是 最底层 的盒子；width主要是用来修改最外层盒子的大小的，它的值等于：显示内容的宽度+滚动条本身的宽度。也可以用来设置背景*/
+
+
+/*下面滚动条的样式：*/
+
+		#Scrollbar-Container-1_dangan {
+			Z-INDEX: 100; LEFT: 740px; POSITION: absolute; TOP: 0px
+		}
+		/*上面是：整个滚动条的样式；left主要是用来修改整个滚动条距离最左边的距离。*/
+		#Scrollbar-Container-1_dangan .Scrollbar-Track_dangan {
+			BACKGROUND: url(hua_03.jpg) repeat-y 5px 0px; CURSOR: pointer; POSITION: absolute; TOP: 20px; LEFT: 0px; WIDTH: 14px;  HEIGHT:430px
+		}
+		/*上面是：滚动条的背景样式；主要是用来修改（除了顶部和底部的三角按钮）的 滚动条的高度；*/
+		#Scrollbar-Container-1_dangan .Scrollbar-Handle_dangan {
+		BACKGROUND: url(huakuai.jpg) no-repeat 4px 0px;
+		CURSOR: pointer;
+		POSITION: absolute;
+		WIDTH: 14px; HEIGHT: 30px;
+		left: 0px;
+		top: 0px;
+		}
+		/*上面是：滑块的样式；主要是用来修改滑块的大小：重点是：高度；宽度要和滚动条背景的宽度的一致，只能通过修改背景图片的偏移量来修正图片的显示位置；及滑块和设置滑块距离它底部背景的距离*/
+		#Scrollbar-Container-1_dangan .Scrollbar-Up_dangan {
+			BACKGROUND:CURSOR: pointer; POSITION: absolute; TOP: 0px; LEFT: 2px;  WIDTH: 10px; HEIGHT: 10px
+		}
+		/*上面是：顶部三角形的样式；主要是用来修改：它的宽度和高度，还有距离顶部的距离*/
+		#Scrollbar-Container-1_dangan .Scrollbar-Down_dangan {
+			BACKGROUND:CURSOR: pointer; POSITION: absolute; TOP: 460px; LEFT: 2px; WIDTH: 10px; HEIGHT: 10px
+		}
+		/*上面是：底部三角形的样式；主要是用来修改：它的宽度和度充，还有距离顶部的距离*/
+
+
+
+/*下面是内容部分的样式：*/
+
+		.Container1_dangan {
+			LEFT: 0px; WIDTH: 740px; POSITION: absolute; TOP: 0px; HEIGHT: 455px
+		}
+		/*上面是：控制内容的最底层的，可以不修改;主要是用来修改： 显示内容背景的宽度和高度及背景等样式。*/
+		.Container1_dangan #Scroller-1_dangan {
+			MARGIN-TOP: 10px; OVERFLOW: hidden; WIDTH: 740px; POSITION: absolute; HEIGHT: 455px
+		}
+		/*上面是控制滑块的部分，主要是用来修改： 显示内容的宽度和高度的。*/
+		.Container1_dangan .Scroller-Container_dangan {
+			LEFT: 0px; POSITION: absolute; TOP: 0px;
+		}
+		/*上面是控制是上层的内容的，一般不用修改*/

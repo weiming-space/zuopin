@@ -1,0 +1,66 @@
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+
+
+
+
+#container {
+	WIDTH: 100%; TEXT-ALIGN: center
+}
+
+.clearing {
+	CLEAR: both
+}
+
+#content {
+	MARGIN: 0px auto; WIDTH: 950px; TEXT-ALIGN: left
+}
+
+.dl_l_case IMG {
+	BORDER-RIGHT: #333 1px solid; BORDER-TOP: #333 1px solid; BORDER-LEFT: #333 1px solid; BORDER-BOTTOM: #333 1px solid; BACKGROUND-COLOR: #eee
+}
+
+.dl_l_case .dd_case_title {
+	FONT-WEIGHT: bolder; FONT-SIZE: 14px
+}
+.dl_l_case .dd_case_custom {
+	MARGIN-BOTTOM: 5px; COLOR: #999
+}
+#roll {
+	WIDTH: 325px; POSITION: relative; HEIGHT: 220px; TEXT-ALIGN: left
+}
+#Scrollbar-Container-1 {
+	Z-INDEX: 100; LEFT: 260px; POSITION: absolute; TOP: 0px
+}
+#Scrollbar-Container-1 .Scrollbar-Track {
+	BACKGROUND: url(scrollthread.gif) repeat-y; LEFT: 17px; WIDTH: 14px; CURSOR: pointer; POSITION: absolute; TOP: 18px; HEIGHT: 220px
+}
+#Scrollbar-Container-1 .Scrollbar-Handle {
+	BACKGROUND: url(scrollbar.gif) no-repeat top;
+	WIDTH: 14px;
+	CURSOR: pointer;
+	POSITION: absolute;
+	HEIGHT: 35px;
+	left: 1px;
+	top: 2px;
+}
+#Scrollbar-Container-1 .Scrollbar-Up {
+	BACKGROUND: url(scrollup.jpg) no-repeat ; LEFT: 19px; WIDTH: 10px; CURSOR: pointer; POSITION: absolute; TOP: 7px; HEIGHT: 10px
+}
+#Scrollbar-Container-1 .Scrollbar-Down {
+	BACKGROUND: url(scrolldown.jpg) no-repeat; LEFT: 20px; WIDTH: 10px; CURSOR: pointer; POSITION: absolute; TOP: 220px; HEIGHT: 10px
+}
+.Container1 {
+	LEFT: 10px; WIDTH: 260px; POSITION: absolute; TOP: 1px; height:220px;;
+}
+.Container1 #Scroller-1 {
+	MARGIN-TOP: 10px; OVERFLOW: hidden; WIDTH: 260px; POSITION: absolute; height:220px;;
+}
+.Container1 .Scroller-Container {
+	LEFT: -1px;
+	POSITION: absolute;
+	TOP: -10px;
+	overflow:hidden;
+	
+}

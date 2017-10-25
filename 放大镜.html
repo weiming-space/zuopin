@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0}
+li{ list-style:none;}
+img{ vertical-align:bottom}
+body{ background:url(images/bodyBg.jpg);}
+#div1{ width:312px; margin:50px auto; position:relative; background:red;}
+.small{ width:310px; height:310px; border:1px solid #CCC; position:absolute; top:0; left:0;}
+.mark{ width:100%; height:100%; position:absolute; top:0; left:0; z-index:3;  filter:alpha(opacity:0); opacity:0; background:#fff;}
+.player{ width:100px; height:100px; background:#fede4f; border:1px solid #aaa; position:absolute; filter:alpha(opacity:50);opacity:0.5; display:none;}
+.big{ width:310px; height:310px; border:1px solid #CCC; position:absolute; left:320px; top:0; overflow:hidden; display:none;}
+.big img{ position:absolute; top:0; left:0;}
+#left{ width:10px; height:45px; background:url(images/left.gif); position:absolute; left:0; top:322px; cursor:pointer;}
+#right{ width:10px; height:45px; background:url(images/right.gif); position:absolute;right:0; top:322px;}
+#list{width:288px; height:46px; overflow:hidden; position:absolute; left:10px; top:320px;}
+#list ul{ position:absolute; left:0;}
+#list ul li{ float:left; width:40px; height:40px; padding:4px; overflow:hidden; cursor:pointer;}
+#list li img{ border:1px solid  #cdcdcd;}
+#list .active img{  border:1px solid #ff0000;}
+</style>
+<script type="text/javascript">
+
+window.onload=function(){
+	
+	var oDiv=document.getElementById('div1');
+	var oSmall=oDiv.children[0];
+	var oMark=getByClass(oDiv,'mark')[0];
+	var oMidImg=oDiv.getElementsByTagName('img')[0];
+	var oPlayer=getByClass(oDiv,'player')[0];
+	var oBig=getByClass(oDiv,'big')[0];
+	var oBigImg=oBig.children[0];
+	var oLeft=document.getElementById('left');
+	var oRight=document.getElementById('right');
+	var oList=document.getElementById('list');
+	var aLi=oList.getElementsByTagName('li');
+	var oSmallLeft=getPos(oSmall).l;
+	var oSmallTop=getPos(oSmall).t;
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].index=i;
+			aLi[i].onclick=function(){
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className='';
+				}
+				this.className='active';
+				oMidImg.src='images/m'+(this.index+1)+'.jpg';
+				oBigImg.src='images/b'+(this.index+1)+'.jpg';
+			};
+		};
+		oMark.onmouseover=function(){
+			oPlayer.style.display='block';
+			oBig.style.display='block';
+		}
+		oMark.onmouseout=function(){
+			oPlayer.style.display='none';
+			oBig.style.display='none';
+		}
+		oMark.onmousemove=function(e){
+			var e=e||window.event;
+			var l=e.clientX-oSmallLeft-oPlayer.offsetWidth/2;
+			var t=e.clientY-oSmallTop-oPlayer.offsetHeight/2;
+			if(l<0){
+				l=0;
+			}else if(l>oMark.offsetWidth-oPlayer.offsetWidth){
+				l=oMark.offsetWidth-oPlayer.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t>oMark.offsetHeight-oPlayer.offsetHeight){
+				t=oMark.offsetHeight-oPlayer.offsetHeight;
+			}
+			var scaleX=l/(oMark.offsetWidth-oPlayer.offsetWidth);
+			var scaleY=t/(oMark.offsetHeight-oPlayer.offsetHeight);
+			oBigImg.style.left=-scaleX*(oBigImg.offsetWidth-oBig.offsetWidth)+'px';
+			oBigImg.style.top=-scaleY*(oBigImg.offsetHeight-oBig.offsetHeight)+'px';
+			oPlayer.style.left=l+'px';
+			oPlayer.style.top=t+'px';
+		}
+};
+function getByClass(oParent,sAttr){
+	var aEle=oParent.getElementsByTagName('*');
+	var reg=new RegExp('\\b'+sAttr+'\\b','g');
+	var aResult=[];
+	for(var i=0; i<aEle.length; i++){
+		if(reg.test(aEle[i].className)){
+			aResult.push(aEle[i]);
+		}	
+	}
+	return aResult;
+}
+function getPos(ele,oRefer){
+	var pos={l:null,t:null};
+	var oRefer=oRefer||document.body;
+	var l=ele.offsetLeft;
+	var t=ele.offsetTop;
+		if(window.navigator.userAgent.indexOf('MSIE 8.0') == -1){
+			l=l+ele.offsetParent.clientLeft;
+			t=t+ele.offsetParent.clientTop;
+			
+		}
+		
+	var oCur=ele.offsetParent;
+
+	while(oCur!=oRefer&&oCur!=document.documentElement){
+		
+		if(window.navigator.userAgent.indexOf('MSIE 8.0')>-1){
+			l+=oCur.offsetLeft;
+			t+=oCur.offsetTop;
+		}else{
+			l+=oCur.offsetLeft+oCur.offsetParent.clientLeft;
+			t+=oCur.offsetTop+oCur.offsetParent.clientTop;
+
+		}
+
+		oCur=oCur.offsetParent;
+	}
+	pos.l=l;
+	pos.t=t;
+	return pos;
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div class="small">
+    	<span class="mark"></span>
+        <span class="player"></span>
+    	<img src="images/m1.jpg" />
+    </div>
+    <div class="big">
+    	<img src="images/b1.jpg" />
+    </div>
+    <span id="left"></span>
+  <span id="right"></span>
+    <div id="list">
+    	<ul>
+        <li><img src="images/s1.jpg" /></li>
+        <li><img src="images/s2.jpg" /></li>
+        <li><img src="images/s3.jpg" /></li>
+        <li><img src="images/s4.jpg" /></li>
+        <li><img src="images/s5.jpg" /></li>
+        <li><img src="images/s6.jpg" /></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

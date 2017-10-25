@@ -1,0 +1,114 @@
+.ad-gallery {
+	WIDTH: 480px
+}
+.ad-gallery {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.ad-gallery * {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.ad-gallery .ad-image-wrapper {
+	POSITION: relative; WIDTH: 100%; HEIGHT: 300px; OVERFLOW: hidden
+}
+.ad-gallery .ad-image-wrapper .ad-loader {
+	Z-INDEX: 10; BORDER-BOTTOM: #ffffff 1px solid; POSITION: absolute; BORDER-LEFT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; TOP: 48%; BORDER-RIGHT: #ffffff 1px solid; LEFT: 48%
+}
+.ad-gallery .ad-image-wrapper .ad-next {
+	Z-INDEX: 100; POSITION: absolute; WIDTH: 25%; DISPLAY: block; HEIGHT: 100%; TOP: 0px; CURSOR: pointer; RIGHT: 0px
+}
+.ad-gallery .ad-image-wrapper .ad-prev {
+	Z-INDEX: 100; POSITION: absolute; WIDTH: 25%; DISPLAY: block; HEIGHT: 100%; TOP: 0px; CURSOR: pointer; LEFT: 0px
+}
+.ad-gallery .ad-image-wrapper .ad-prev {
+	BACKGROUND: url(non-existing.jpg)
+}
+.ad-gallery .ad-image-wrapper .ad-next {
+	BACKGROUND: url(non-existing.jpg)
+}
+.ad-gallery .ad-image-wrapper .ad-prev .ad-prev-image {
+	Z-INDEX: 101; POSITION: absolute; WIDTH: 30px; DISPLAY: none; BACKGROUND: url(ad_prev.png); HEIGHT: 30px; TOP: 47%; LEFT: 0px
+}
+.ad-gallery .ad-image-wrapper .ad-next .ad-next-image {
+	Z-INDEX: 101; POSITION: absolute; WIDTH: 30px; DISPLAY: none; BACKGROUND: url(ad_prev.png); HEIGHT: 30px; TOP: 47%; LEFT: 0px
+}
+.ad-gallery .ad-image-wrapper .ad-next .ad-next-image {
+	WIDTH: 30px; BACKGROUND: url(ad_next.png); HEIGHT: 30px; RIGHT: 0px; LEFT: auto
+}
+.ad-gallery .ad-image-wrapper .ad-image {
+	Z-INDEX: 9; POSITION: absolute; OVERFLOW: hidden; TOP: 0px; LEFT: 0px
+}
+.ad-gallery .ad-image-wrapper .ad-image A IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
+	BACKGROUND-IMAGE: url(opa75.png); Z-INDEX: 2; POSITION: absolute; TEXT-ALIGN: left; FILTER: Alpha(opacity=60); PADDING-BOTTOM: 7px; BACKGROUND-COLOR: #fef8e7; PADDING-LEFT: 7px; WIDTH: 100%; BOTTOM: 0px; PADDING-RIGHT: 7px; COLOR: #000; PADDING-TOP: 7px; LEFT: 0px; opacity: .60
+}
+* HTML .ad-gallery .ad-image-wrapper .ad-image .ad-image-description {
+	BACKGROUND-IMAGE: none; FILTER: Alpha(opacity=60); BACKGROUND-COLOR: #fef8e7; opacity: .60
+}
+.ad-gallery .ad-image-wrapper .ad-image .ad-image-description .ad-description-title {
+	DISPLAY: block
+}
+.ad-gallery .ad-controls {
+	HEIGHT: 20px
+}
+.ad-gallery .ad-info {
+	FLOAT: left
+}
+.ad-gallery .ad-slideshow-controls {
+	FLOAT: right
+}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-start {
+	PADDING-LEFT: 5px; CURSOR: pointer
+}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-stop {
+	PADDING-LEFT: 5px; CURSOR: pointer
+}
+.ad-gallery .ad-slideshow-controls .ad-slideshow-countdown {
+	PADDING-LEFT: 5px; FONT-SIZE: 0.9em
+}
+.ad-gallery .ad-slideshow-running .ad-slideshow-start {
+	FONT-STYLE: italic; CURSOR: default
+}
+.ad-gallery .ad-nav {
+	POSITION: relative; WIDTH: 100%
+}
+.ad-gallery .ad-forward {
+	Z-INDEX: 10; POSITION: absolute; HEIGHT: 100%; TOP: 0px
+}
+.ad-gallery .ad-back {
+	Z-INDEX: 10; POSITION: absolute; HEIGHT: 100%; TOP: 0px
+}
+* HTML .ad-gallery .ad-forward {
+	HEIGHT: 100px
+}
+.ad-gallery .ad-back {
+	HEIGHT: 100px
+}
+.ad-gallery .ad-back {
+	WIDTH: 13px; DISPLAY: block; BACKGROUND: url(aln_29.jpg) no-repeat 0px 0px; CURSOR: pointer; LEFT: -20px
+}
+.ad-gallery .ad-forward {
+	WIDTH: 13px; DISPLAY: block; BACKGROUND: url(aln_33.jpg) no-repeat 0px 0px; CURSOR: pointer; RIGHT: -20px
+}
+.ad-gallery .ad-nav .ad-thumbs {
+	WIDTH: 100%; OVERFLOW: hidden
+}
+.ad-gallery .ad-thumbs .ad-thumb-list {
+	LIST-STYLE-TYPE: none; WIDTH: 9000px; FLOAT: left
+}
+.ad-gallery .ad-thumbs LI {
+	PADDING-RIGHT: 5px; FLOAT: left
+}
+.ad-gallery .ad-thumbs LI A {
+	DISPLAY: block
+}
+.ad-gallery .ad-thumbs LI A IMG {
+	BORDER-BOTTOM: #ccc 3px solid; BORDER-LEFT: #ccc 3px solid; DISPLAY: block; BORDER-TOP: #ccc 3px solid; BORDER-RIGHT: #ccc 3px solid
+}
+.ad-gallery .ad-thumbs LI A.ad-active IMG {
+	BORDER-BOTTOM: #616161 3px solid; BORDER-LEFT: #616161 3px solid; BORDER-TOP: #616161 3px solid; BORDER-RIGHT: #616161 3px solid
+}
+.ad-preloads {
+	POSITION: absolute; TOP: -9000px; LEFT: -9000px
+}

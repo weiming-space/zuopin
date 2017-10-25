@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="style/index.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="script/img.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('#index_ren');
+DD_belatedPNG.fix('#site_photos');
+</script>
+<![endif]-->
+<script type="text/javascript" src="script/jquery-1.4.3.min.js"></script>
+</head>
+<body>
+{template "content","header"}
+<!--/header-->
+
+<div id="site_index">
+	<div id="site_index_mainindex" style="margin-top:5px;">
+	  <div id="site_main_content_body">
+	    <div id="site_logo" style="display:inline; padding-bottom:50px;"></div>
+	    
+	    <!--#中间-->
+	    <div id="pannel_main" style=" padding-top:0px;">
+	      <div class="index_left">
+	        <div class="slide">
+			
+		{pc:content  action="position"  num="5" posid="19" order="listorder ASC"}
+                    
+                        {loop $data $k $v}
+                         {php $pptimage[]=$v['thumb']; $pptimagestr= implode("|",$pptimage);}
+                         {php $ppthref[]=$v['url']; $ppthrefstr= implode("|",$ppthref);}
+						{/loop}
+                    
+         {/pc}
+                    
+                    
+			<script type="text/javascript">
+var swf_width=390;/*修改flash宽，图片广告需要适应此宽度*/
+var swf_height=244;/*修改flash高，图片广告需要适应此高度*/
+
+
+
+var files='{$pptimagestr}';/*广告图片*/
+var links='{$ppthrefstr}';/*图片上的链接,注意链接中的&要用%26替换*/
+var texts='';/*图片标题*/
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
+document.write('<param name="movie" value="images/bcastr3.swf"><param name="quality" value="high">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'">');
+document.write('<embed src="images/bcastr3.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'& menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>'); 
+</script> </div>
+	        <div class="index_shipin">
+	          <div id="index_vid" style="background:green; display:inline; float:left; margin-left:20px;"><object width="162" height="107" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+<param value="images/flvplayer.swf?vcastr_file=/home/uploadfile/tmp/20101117173344712.flv" name="movie">
+<param value="high" name="quality">
+<param value="true" name="allowFullScreen">
+<embed width="162" height="107" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" allowfullscreen="true" src="images/flvplayer.swf?vcastr_file=/home/uploadfile/tmp/20101117173344712.flv">
+</object></div>
+	          <div id="index_vid_art">
+	            {pc:content  action="lists" catid="12" num="5"  order="listorder ASC"}
+	            <ul>
+	              {loop $data $k $v}
+                  <li><span style="display:block; float:left; display:inline"><img src="./images/arg_bg_{if $k==1}01{else}02{/if}.jpg" /></span><span style="display:block; float:left; display:inline; width:160px;"><a href="{$v[url]}" title="{$v[title]}">{str_cut($v['title'],40,false)}</a></span></li>
+	              
+	             {/loop}
+                  </ul>
+                {/pc}
+              </div><!--/index_vid_art-->
+            </div><!--/index_shipin-->
+             <div id="index_notice">
+                  {pc:content  action="position" catid="6" num="5" moreinfo="1" posid="2" order="listorder ASC"}
+                  {php $nowone = array_shift($data);}
+              		<div class="notice_r1">
+                    	<h2>{str_cut($nowone[title],40)}</h2>
+                    	<p> {str_cut($nowone[content],120)}<a href="{$nowone[url]}">详细</a></p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    
+                    <ul>
+                        {loop $data $k $v}
+                    	<li><a href="{$v['url']}" title="{$v[title]}">{str_cut($v['title'],60)}</a></li>
+						{/loop}
+                    </ul>
+                    {/pc}
+              </div>
+          </div>
+	      <div class="index_right">
+	        <div class="art1">
+            <div id="bofangqi"> <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="180" height="29">
+    <param name="movie" value="style/indexmp3player.swf">
+    <param name="quality" value="high">
+    <embed src="style/indexmp3player.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="180" height="29"></embed>
+  </object></div>
+	          {pc:content  action="position" catid="30" num="8" posid="17" order="listorder ASC"}
+              <ul id="ary_right_index">
+	           
+               {loop $data $k $v}
+                <li><a href="{$v['url']}" title="{$v['title']}">{str_cut($v['title'],40)} </a></li>
+	           {/loop}
+
+              </ul>
+              {/pc}
+              <div class="clear"></div>
+            </div><!--#art1-->
+            
+            <div class="clear"></div>
+            <div id="site_photos"><!--相册-->
+            </div>
+            <div class="clear"></div>
+            
+            <div id="index_annance">
+          	 <h2><a href="javascript:;" class="ico1"><img src="images/ico1.jpg" /></a><samp>2012年2月</samp><a href="javascript:;" class="ico2"><img src="images/ico2.jpg" /></a></h2>
+            {pc:announce  action="lists" siteid="$siteid" num="4"}
+             <ul>
+                 {loop $data $r}
+             	    <li><a href="index.php?m=announce&c=index&a=show&aid={$r['aid']}">{date('m月d日',$r['addtime'])} 周{datew($r['addtime'])} <samp>{str_cut($r['title'],18,false)}</samp></a></li>
+                 {/loop}
+             </ul>
+             {/pc}
+          </div><!--/index_annance-->
+          </div>
+		  
+		  
+		  
+		  <!--#index_right-->
+          <div class="clear"></div>
+        </div>
+      <div class="clear"></div>
+      </div>
+	  <div id="foote_lin_bg" >{template "content","footer"}</div>
+	</div>
+    <div id="index_ren" style="left:960px;"></div>
+	
+</div>
+<script type="text/javascript">
+function getStyle(obj,attr){
+   if(obj.currentStyle){
+		return obj.currentStyle[attr];
+      }else{
+		return document.defaultView.getComputedStyle(obj,null)[attr];
+     }
+}
+(function($){
+	$.fn.setPosition = function(options){
+		options = !options?{}:options;
+		var setting = {
+			position:'left',
+			flag:'-'
+		};
+		options = $.extend(setting,options);
+		var window_width=window.screen.width;
+		var body_width = $("body").width();
+		var w = options.width;
+		var flag = options.flag;
+		if(body_width<window_width){
+			var curent_with = parseInt(window_width - body_width);
+			$(this).css({'right': flag+curent_with+'px'});		
+		}else{
+		 	$(this).css({'left':flag+w+'px'});		
+		}
+	}
+})(jQuery)
+$(function(){
+	$(window).resize(function(){
+		$("#index_ren").setPosition({width:80});
+	});
+	$("#index_ren").setPosition({width:80});
+});
+</script>
+<!--/site_boot-->
+</body>
+</html>

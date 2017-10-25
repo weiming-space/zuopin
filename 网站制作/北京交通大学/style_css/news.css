@@ -1,0 +1,233 @@
+@charset "gb2312";
+/* CSS Document */
+
+.news_wz {
+	width:986px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	padding-bottom:10px;
+}
+
+.news_con {
+	width:986px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+}
+
+/* 左侧导航 */
+.news_left {
+	width:204px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+}
+
+.news_leftmenu {
+	width:194px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	margin-bottom:10px;
+}
+.news_leftmenu_title {
+	width:174px;
+	height:33px;
+	line-height:33px;
+	padding-left:20px;
+	float:left;
+	background-image:url(../images/newslefttitlebg.jpg);
+}
+
+.news_leftmenu_list {
+	width:182px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	padding:5px;
+	border-right:1px solid #cedae6; 
+	border-left:1px solid #cedae6;
+	background-color:#edf2f6;
+}
+
+.news_leftmenu_list li {
+	width:182px;
+	float:left;
+	border-bottom:1px dashed #CCCCCC;
+	height:31px;
+}
+
+.news_leftmenu_list li a {
+	background-image:url(../images/leftabg.jpg);
+	float:left;
+	width:146px;
+	height:29px;
+	line-height:29px;
+	padding-left:36px;
+}
+
+.news_leftmenu_list li a:hover {
+	background-image:url(../images/lefthoverbg.jpg);
+	color:#FFFFFF;
+}
+.news_leftmenu_bt {
+	width:194px;
+	height:10px;
+	float:left;
+}
+
+/* 左侧登录 */
+.news_leftlogin {
+	width:196px;
+	height:151px;
+	float:left;
+	background-image:url(../images/erjilogin.jpg);
+}
+
+/* 右侧标题 */
+.news_right {
+	width:782px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+}
+
+.news_right_title {
+	width:746px;
+	height:42px;
+	float:left;
+	background-image:url(../images/right_titlebg.jpg);
+	padding-left:36px;
+	padding-top:20px;
+	font-size:14px;
+	font-weight:bold;
+	color:#212121;
+}
+
+.news_right_con {
+	width:748px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	padding:0px 17px;
+	background:url(../images/right_conbg.jpg) repeat-y;
+	background-position:left;
+	line-height:24px;
+}
+
+.news_right_bot {
+	width:782px;
+	height:20px;
+	float:left;
+}
+
+/* 新闻列表 */
+.newslist {
+	width:748px;
+	height:auto;
+	overflow:hidden;
+	border-bottom:1px dashed #CCCCCC;
+	float:left;
+	padding:10px 0px;
+}
+
+.newslist_title {
+	width:748px;
+	line-height:30px;
+	float:left;
+}
+.newslist_title .left {float:left; font-weight:bold;}
+.newslist_title .right {float:right; color:#999999;}
+
+.newslist_con {
+	width:748px;
+	float:left;
+	line-height:20px;
+	color:#333333;
+}
+.page {
+	width:748px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	text-align:center;
+	padding:20px 0px;
+}
+
+/* 新闻内页 */
+.news2left {
+	width:737px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+}
+
+.news2left_title {
+	width:700px;
+	height:42px;
+	float:left;
+	background-image:url(../images/newstitlebg.jpg);
+	padding:18px 0px 0px 37px;
+	font-size:14px;
+	font-weight:bold;
+	color:#212121;
+}
+
+.news2left_con {
+	width:707px;
+	height:auto;
+	float:left;
+	background-image:url(../images/newstitlebg2.jpg);
+	padding:0px 15px;
+}
+.news2left_con h1 {text-align:center; font-size:14px; line-height:30px;}
+.news2left_con_time {width:707px; height:24px; text-align:center; color:#999999; padding:10px 0px; border-bottom:1px dashed #CCCCCC;}
+.news2left_con_ny {width:707px; line-height:24px; height:auto; color:343434; overflow:hidden; padding:20px 0px; border-bottom:1px dashed #CCCCCC;}
+.page1 {width:707px; height:40px; line-height:40px;}
+.page1 a.left {float:left; color:#666666}
+.page1 a.right {float:right; color:#666666}
+
+.news2left_bt {
+	width:737px;
+	height:20px;
+	float:left;
+}
+
+.news_right01 {
+	width:244px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+}
+.news_right01_title {
+	width:244px;
+	height:31px;
+	overflow:hidden;
+	float:left;
+}
+.news_right01_con {
+	width:202px;
+	height:auto;
+	overflow:hidden;
+	padding:15px 20px;
+	background-color:#f4f7fa;
+	border:1px solid #d9dbdc;
+	float:left;
+}
+.news_right01_con ul {
+	width:202px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	line-height:18px;
+}
+.news_right01_con ul li {
+	width:202px;
+	border-bottom:1px dashed #666666;
+	padding:5px 0px;
+}
+
+/* 会员 */
+.hy h1 {font-size:14px; font-weight:bold;}
+.hy .con {line-height:18px; padding-top:5px;}

@@ -1,0 +1,45 @@
+/* CSS Document */
+
+
+ul{ list-style:none; margin:0px; padding:0px}
+h1,h2,h3,h4,h5{ margin:0px; padding:0px; font-style:normal}
+img{ margin:0px; padding:0px; vertical-align:bottom}
+body{ margin:0px; font-family: "宋体"; font-size:12px; background:#C0C0C0}
+
+.zhengti{ width:990px; margin: 0 auto}
+.header{ width:990px;}
+.logotu{ width:990px;}
+.nar{ width:990px; height:32px;}
+
+/*中部开始*/
+.content{ width:990px; background:#FFFFFF; padding-bottom:10px; overflow:hidden}
+.mid1{ width:990px;}
+.mid_shang{ width:990px; line-height:10px; background:#FF0000}
+.listtu{ width:990px; height:130px}
+.mid1xia{ width:990px; height:16px}
+.toptu{ width:173px; height:62px}
+.mid2{ width:990px; overflow:hidden}
+.left{ width:173px; margin-left:10px;float:left; display:inline}
+.nar_title{ }
+.main_nar{ width:173px}
+.main_nar li{ width:173px; height:34px; line-height:34px; background: url(../images/kecheng_03_02.gif); text-align:center}
+.main_nar li a{ color:#000000; text-decoration:none}
+.main_nar li a:hover{ color:#FF0000}
+.se{ widows:173px; height:5px}
+.tel{ width:173px; height:123px;}
+.QQ{ width:173px; height:123px;}
+
+.right{ width:764px; float:left}
+.top{ width:744px; height:54px; margin-left:20px;}
+.middle{ width:740px; margin-left:20px; border-left:#DBDBDB 2px solid; border-right:#DBDBDB 2px solid;}
+.middle li{ width:740px; height:26px; line-height:26px; text-indent:150px; background:url(../images/kecheng_18.gif)}
+.middle li a{ color: #FFFFFF; text-decoration:none; width:740px; height:26px; display:block}
+.middle li a:hover{ color:#FF0000; background:url(../images/kecheng_333.gif);}
+.kecheng_zi{ width:740px;; margin-left:20px; border-left:#DBDBDB 2px solid; border-right:#DBDBDB 2px solid ;border-bottom:#DBDBDB 3px solid; height:500px; overflow-y:scroll}
+.kecheng_zi p{ line-height:18px;}
+.kecheng_zi p table{ float:left}
+/*中部结束*/
+.footer{ width:990px;}
+.nar_title{ width:990px; height:30px}
+.nar_content{ width:990px; height:150px}
+.copyright{ width:990px; height:75px}

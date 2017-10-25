@@ -1,0 +1,51 @@
+/* CSS Document */
+ul{ list-style:none; margin:0px; padding:0px;}
+p{ margin:0px; padding:0px;}
+h1,h2,h3,h4{ margin:0px; padding:0px;}
+img{ vertical-align:bottom;}
+input{ padding:0px; margin:0px}
+body{ margin:0px; padding:0px; background:#FFFFFF; font-family:"ËÎÌו"; font-size:12px;}
+.zhengti{ width:900px; margin:0 auto;}
+.header{ width:900px;}
+.toptu{ width:900px; height:89px;}
+.js{ width:900px; height:345px;}
+.nav{ width:900px; height:40px; line-height:40px; text-align:center; font-size:13px;}
+.nav a{ color:#000000; text-decoration:none}
+.nav a:hover{ color:#FF0000}
+.main{ width:900px; margin-top:30px;}
+.mid1{ width:900px; overflow:hidden}
+.list{ width:319px; float:left}
+.list .title{ width:319px; height:28px}
+.list1{ width:319px; overflow:hidden}
+.list1 .left{ width:120px; float:left; margin-left:20px; display:inline;}
+.list1 .left li{ width:120px; height:28px; line-height:28px;}
+.list1 .left li a{ color: #666666; text-decoration:none}
+.list1 .left li a;hover{ color:#FF0000; text-decoration:underline}
+.zhong{ width:301px; float:left; margin-left:20px;}
+.zhong .title{ width:301px; height:28px;}
+.zhong .che{ width:301px; height:148px; margin-top:10px;}
+.service{ width:239px; float:left; margin-left:20px;}
+.service .title{ width:239px; height:28px;}
+.list2{ width:239px; overflow:hidden}
+.list2 .left{ width:105px; margin-left:10px; float:left; display:inline}
+.list2 .left li{ width:105px; height:28px; line-height:28px;}
+.list2 .left li a{ color: #666666; text-decoration:none}
+.list2 .left li a;hover{ color:#FF0000; text-decoration:underline}
+
+.mid2{ width:900px; overflow:hidden}
+.success{ width:640px; float:left}
+.success .title{ width:640px; height:24px}
+.scroll{ width:630px; padding:5px; overflow:hidden}
+.yi{ width:150px; height:145px; float:left; margin-left:6px;display:inline}
+.scroll_tu{ width:150px; height:125px;}
+.scroll_zi{ width:150px; height:20px; line-height:20px; text-align:center}
+.msg{ width:239px; float:right}
+.msg .title{ width:239px; height:24px}
+.msg .content{ width:229px; margin-left:10px}
+.msg .content li{ width:229px; height:30px; line-height:30px;}
+
+.footer{ width:900px;}
+.friendlink{ width:900px; height:30px; line-height:30px; padding-bottom:20px; border-bottom:#990000 2px solid}
+.friendlink a{ color:#333333; text-decoration:none}
+.copyright{ width:900px;}
+.copyright p{ height:20px; line-height:20px; text-align:center; margin-top:5px}
